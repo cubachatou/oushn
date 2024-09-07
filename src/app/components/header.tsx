@@ -58,12 +58,12 @@ export default function Header({ logo }: HeaderProps) {
 
           <nav className="absolute -z-1 inset-0 w-full h-full text-white">
             <ul className="pointer-events-auto h-full flex flex-col items-center justify-center gap-4 text-9xl font-California text-center">
-              <li><a href="/">Studio</a></li>
+              <li><a href="/" className="hover:text-[#FFE227] transition-colors">Studio</a></li>
               <li>
                 <span>School</span>
                 <ul className="text-7xl list-disc list-inside [&_a]:-ml-[0.5em] marker:text-[#FFE227]">
-                  <li><a href="/school/art-direction-course">Art Direction Course</a></li>
-                  <li><a href="/school/character-course">Character Course</a></li>
+                  <li><a href="/school/art-direction-course" className="hover:text-[#FFE227] transition-colors">Art Direction Course</a></li>
+                  <li><a href="/school/character-course" className="hover:text-[#FFE227] transition-colors">Character Course</a></li>
                 </ul>
               </li>
             </ul>

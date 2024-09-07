@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${california.variable} ${gillLight.variable} ${gillRegular.variable} ${gillBold.variable}`}>
-      <body>
+      <body className="relative font-Gill text-lg text-dark-sienna">
         <Header logo={logo}></Header>
 
         <main>{children}</main>

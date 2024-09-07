@@ -16,13 +16,6 @@
   }
 } */
 
-
-@layer base {
-  body {
-    @apply font-Gill text-lg text-dark-sienna;
-  }
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
