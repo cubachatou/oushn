@@ -1,9 +1,8 @@
 import introVideo from "@videos/intro.mp4";
 import BackgroundVideo from "next-video/background-video";
 import Image from "next/image";
+import Header from "./components/header";
 
-import burger from "@images/icons/burger.svg";
-import logo from "@images/logos/logo-red.svg";
 // 
 const clientImages: any[] = [];
 for (let i = 1; i <= 12; i++) {
@@ -32,23 +31,7 @@ export default function Home() {
   return (
     <main className="relative">
 
-      <header className="absolute inset-0 z-10">
-        <div className="h-[77.5vh]"></div>
-
-        <div className="sticky top-0 py-8">
-          <div className="container max-w-none md:px-8">
-            <div className="flex items-center justify-between gap-8">
-              <a href="#">
-                <Image src={logo} alt="logo" />
-              </a>
-
-              <button className="flex items-center justify-center size-12 rounded-full shadow-[0px_0px_8px_-4px] shadow-black">
-                <Image src={burger} alt="menu" width={24} height={24} className="size-6"/>
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <section style={{ '--height': '77.5vh' }} className="-mb-[var(--height)] bg-gray">
         <BackgroundVideo src={introVideo} className="h-[var(--height)] !sticky !top-0">
