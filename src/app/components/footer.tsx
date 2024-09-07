@@ -28,7 +28,7 @@ export default function Footer() {
             <div className="flex flex-col items-center gap-6 text-center">
               <span className="text-3xl font-bold">Have a project in mind?</span>
               <span className="text-xl font-GillLight">Drop us a line</span>
-              <a href="mailto:hello@oushn.tv" className="text-2xl font-semibold underline">hello@oushn.tv</a>
+              <a href="mailto:hello@oushn.tv" className="p-base font-semibold underline">hello@oushn.tv</a>
             </div>
           </div>
 
@@ -39,7 +39,7 @@ export default function Footer() {
               <ul className="flex items-center gap-4">
                 {socials.map((social, index) => (
                   <li key={index} className="inline-block">
-                    <a href="/" className="text-2xl">
+                    <a href="/" className="p-base">
                       <Image src={social.url} alt={social.name} />
                     </a>
                   </li>

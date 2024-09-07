@@ -13,7 +13,7 @@ export default function IntroTextSection({ title, description, titleColor, maxWi
           <h1 className={`text-7xl font-California font-bold ${titleColor ? `${titleColor}` : 'text-inherit'}`}
           style={{ maxWidth: maxWidth ? `${maxWidth / 16}rem` : 'none' }}
           >{title}</h1>
-          <p className="max-w-screen-md text-2xl text-dark-sienna">{description}</p>
+          <p className="max-w-screen-md p-base">{description}</p>
         </header>
       </div>
     </section>
