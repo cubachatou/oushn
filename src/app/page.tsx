@@ -1,113 +1,136 @@
+import introVideo from "@videos/intro.mp4";
+import BackgroundVideo from "next-video/background-video";
 import Image from "next/image";
+
+import burger from "@images/icons/burger.svg";
+import logo from "@images/logos/logo-red.svg";
+// 
+const clientImages: any[] = [];
+for (let i = 1; i <= 12; i++) {
+  clientImages.push(require(`@images/clients/client_${String(i).padStart(2, '0')}.svg`));
+}
+// 
+const socials = [
+  {
+    name: 'Instagram',
+    url: require('@images/socials/instagram.svg'),
+    icon: 'instagram',
+  },
+  {
+    name: 'Facebook',
+    url: require('@images/socials/facebook.svg'),
+    icon: 'facebook',
+  },
+  {
+    name: 'LinkedIn',
+    url: require('@images/socials/linkedin.svg'),
+    icon: 'linkedin',
+  },
+];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="relative">
+
+      <header className="absolute inset-0 z-10">
+        <div className="h-[77.5vh]"></div>
+
+        <div className="sticky top-0 py-8">
+          <div className="container max-w-none md:px-8">
+            <div className="flex items-center justify-between gap-8">
+              <a href="#">
+                <Image src={logo} alt="logo" />
+              </a>
+
+              <button className="flex items-center justify-center size-12 rounded-full shadow-[0px_0px_8px_-4px] shadow-black">
+                <Image src={burger} alt="menu" width={24} height={24} className="size-6"/>
+              </button>
+            </div>
+          </div>
         </div>
+      </header>
+
+      <section style={{ '--height': '77.5vh' }} className="-mb-[var(--height)] bg-gray">
+        <BackgroundVideo src={introVideo} className="h-[var(--height)] !sticky !top-0">
+        </BackgroundVideo>
+        <div className="h-[var(--height)]"></div>
+      </section>
+
+      <div className="relative z-1 bg-white shadow-[0px_0px_24px_-16px] shadow-black">
+        <section className="py-24">
+          <div className="container">
+            <header className="flex flex-col items-center gap-4 text-center">
+              <h1 className="text-7xl font-California font-bold text-dark-terra-cotta">in love with animation</h1>
+              <p className="max-w-screen-md text-2xl text-dark-sienna">We’re Oushn, an animation and motion design studio from Ukraine, working worldwide. We create bright explainers, illustrations and cool animated content for brands with focus on storytelling and emotions. We do all cycle of animation production - from idea to last details in sound design</p>
+            </header>
+          </div>
+        </section>
+
+        <section className="pb-8">
+          <div className="container">
+            <div className="flex flex-col items-center gap-32">
+              <div className="grid grid-cols-3 gap-x-8 gap-y-16">
+                {Array.from({ length: 6 }).map((_, index) => (
+                  <figure key={index} className="flex flex-col items-center text-center gap-4">
+                    <Image src="https://dummyimage.com/600/04ab55/ffffff" alt="" width={400} height={400} className="w-full aspect-[16/12] object-cover" />
+                    <figcaption>
+                      <h3 className="text-4xl font-bold text-dark-sienna">Pumb values</h3>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+
+              <a href="/" className="button bg-dark-terra-cotta">all projects</a>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-32">
+          <div className="container max-w-none">
+            <div className="flex flex-col items-center gap-24">
+              <h2 className="text-5xl font-bold text-dark-sienna">Our clients</h2>
+
+              <div className="w-full grid grid-cols-6 gap-x-8 gap-y-16">
+                {clientImages.map((src, index) => (
+                  <div key={index} className="flex justify-center">
+                    <Image src={src} alt="" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <footer className="-mt-[100vh] bg-dark-sienna text-white">
+        <div className="h-[100vh]"></div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+        <div className="sticky bottom-0 flex flex-col gap-40 pt-24 pb-8">
+          <div className="container">
+            <div className="flex flex-col items-center gap-6 text-center">
+              <span className="text-3xl font-bold">Have a project in mind?</span>
+              <span className="text-xl font-GillLight">Drop us a line</span>
+              <a href="mailto:hello@oushn.tv" className="text-2xl font-semibold underline">hello@oushn.tv</a>
+            </div>
+          </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+          <div className="container max-w-none md:px-8">
+            <div className="flex items-end justify-between">
+              <span className="text-sm font-GillLight">Oushn ©2024. All rights reserved.</span>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+              <ul className="flex items-center gap-4">
+                {socials.map((social, index) => (
+                  <li key={index} className="inline-block">
+                    <a href="/" className="text-2xl">
+                      <Image src={social.url} alt={social.name} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
