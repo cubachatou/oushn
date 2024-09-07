@@ -1,16 +1,22 @@
 "use client"
 
-import burger from "@images/icons/burger.svg";
-import close from "@images/icons/close.svg";
-import logoWhite from "@images/logos/logo-white.svg";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useState } from "react";
+//
+import burger from "@images/icons/burger.svg";
+import close from "@images/icons/close.svg";
+import logoBlue from "@images/logos/logo-blue.svg";
+import logoPink from "@images/logos/logo-pink.svg";
+import logoRed from "@images/logos/logo-red.svg";
+import logoWhite from "@images/logos/logo-white.svg";
 
-interface HeaderProps {
-  logo: string;
-}
-
-export default function Header({ logo }: HeaderProps) {
+export default function Header() {
+  const pathname = usePathname();
+  const logo = pathname === "/school/character-course" ? logoPink : pathname === "/school/art-direction-course" ? logoBlue : logoRed;
+  const isActive = (path: string) => pathname === path;
+  const isSchoolPath = pathname.includes("/school");
+  //
   const [zIndex, setZIndex] = useState(0);
   const [clipPath, setClipPath] = useState('circle(0% at 50% 50%)');
   const [transitionDuration, setTransitionDuration] = useState('700ms');
@@ -58,12 +64,14 @@ export default function Header({ logo }: HeaderProps) {
 
           <nav className="absolute -z-1 inset-0 w-full h-full text-white">
             <ul className="pointer-events-auto h-full flex flex-col items-center justify-center gap-4 text-9xl font-California text-center">
-              <li><a href="/" className="hover:text-[#FFE227] transition-colors">Studio</a></li>
+              <li className={`hover:text-dark-terra-cotta transition-colors ${isActive("/") ? "text-dark-terra-cotta" : ""}`}>
+                <a href="/">Studio</a>
+              </li>
               <li>
-                <span>School</span>
-                <ul className="text-7xl list-disc list-inside [&_a]:-ml-[0.5em] marker:text-[#FFE227]">
-                  <li><a href="/school/art-direction-course" className="hover:text-[#FFE227] transition-colors">Art Direction Course</a></li>
-                  <li><a href="/school/character-course" className="hover:text-[#FFE227] transition-colors">Character Course</a></li>
+                <span className={`cursor-default ${isSchoolPath ? "text-[#FFE227]" : ""}`}>School:</span>
+                <ul className="text-7xl">
+                  <li className={`hover:text-royal-blue transition-colors ${isActive("/school/art-direction-course") ? "text-royal-blue" : ""}`}><a href="/school/art-direction-course">Art Direction Course</a></li>
+                  <li className={`hover:text-middle-pink transition-colors ${isActive("/school/character-course") ? "text-middle-pink" : ""}`}><a href="/school/character-course">Character Course</a></li>
                 </ul>
               </li>
             </ul>
