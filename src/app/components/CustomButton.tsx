@@ -8,7 +8,7 @@ interface ButtonProps {
   children: React.ReactNode;
 }
 
-export default function Button({ as = 'button', url, type, className, children }: ButtonProps) {
+export default function CustomButton({ as = 'button', url, type, className, children }: ButtonProps) {
   if (as === 'link' && url) {
     return (
       <Link href={url} className={className}>

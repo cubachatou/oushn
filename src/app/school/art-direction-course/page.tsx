@@ -1,17 +1,24 @@
-import Button from "@/app/components/Button";
+import CustomButton from "@/app/components/CustomButton";
 import EnrollForm from "@/app/components/EnrollForm";
 import CourseAuthorSection from "@/app/components/sections/CourseAuthor";
 import IntroTextSection from "@/app/components/sections/IntroText";
 import VideoIntro from "@/app/components/VideoIntro";
 import WhiteWrapperLayout from "@/app/layouts/white-wrapper";
-import liza from "@images/team/liza.jpg";
-import video from "@videos/artdirection_for site_v2.mp4";
-import Image from "next/image";
 import {
   Dialog,
   DialogContent,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import liza from "@images/team/liza.jpg";
+import video from "@videos/artdirection_for site_v2.mp4";
+import Image from "next/image";
 
 export default function ArtDirectionCoursePage() {
   return (
@@ -94,7 +101,7 @@ export default function ArtDirectionCoursePage() {
 
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button as="button" type="button" className="button bg-royal-blue">записатись в групу</Button>
+                  <CustomButton as="button" type="button" className="button bg-royal-blue">записатись в групу</CustomButton>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[560px]">
                   <EnrollForm />
@@ -111,22 +118,36 @@ export default function ArtDirectionCoursePage() {
             <div className="flex flex-col gap-16">
               <h3 className="h2 text-royal-blue">Відгуки студентів</h3>
 
-              <div className="flex gap-8">
-                <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="aspect-[16/12] object-cover" />
-                <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="aspect-[16/12] object-cover" />
-                <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="aspect-[16/12] object-cover" />
-                {/* <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="aspect-[16/12] object-cover" />
-                  <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="aspect-[16/12] object-cover" /> */}
-              </div>
+              <Carousel opts={{ align: "start" }} className="w-full">
+                <CarouselContent className="-ml-10">
+                  <CarouselItem className="basis-1/4 pl-10">
+                    <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="aspect-[16/12] object-cover" />
+                  </CarouselItem>
+                  <CarouselItem className="basis-1/4 pl-10">
+                    <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="aspect-[16/12] object-cover" />
+                  </CarouselItem>
+                  <CarouselItem className="basis-1/4 pl-10">
+                    <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="aspect-[16/12] object-cover" />
+                  </CarouselItem>
+                  <CarouselItem className="basis-1/4 pl-10">
+                    <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="aspect-[16/12] object-cover" />
+                  </CarouselItem>
+                  <CarouselItem className="basis-1/4 pl-10">
+                    <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="aspect-[16/12] object-cover" />
+                  </CarouselItem>
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
 
-              <a href="#" className="button self-center bg-royal-blue">дивитись роботи</a>
+            <a href="#" className="button self-center bg-royal-blue">дивитись роботи</a>
 
-              <p className="max-w-screen-md self-center text-center p-base text-pretty">Для роботи на курсі потрібен ПК з встановленими програмами After Effects та Illustrator (або інші альтернативні програми для створення графіки, в яких вам зручно працювати). Ви будете самостійно створювати ілюстрації та анімацію, тож треба мати відповідні навички. Якщо ви не впевнені, чи достатньо ваших скілів для участі в курсі – напишіть мені!</p>
-            </div>
+            <p className="max-w-screen-md self-center text-center p-base text-pretty">Для роботи на курсі потрібен ПК з встановленими програмами After Effects та Illustrator (або інші альтернативні програми для створення графіки, в яких вам зручно працювати). Ви будете самостійно створювати ілюстрації та анімацію, тож треба мати відповідні навички. Якщо ви не впевнені, чи достатньо ваших скілів для участі в курсі – напишіть мені!</p>
           </div>
-        </section>
-      </WhiteWrapperLayout>
+        </div>
+      </section>
+    </WhiteWrapperLayout>
 
-    </main>
+    </main >
   );
 }

@@ -3,8 +3,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import localFont from 'next/font/local';
 //
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import Footer from "@/app/components/Footer";
+import Header from "@/app/components/Header";
 import { Toaster } from "@/components/ui/toaster"
 //
 const california = localFont({ src: "../../public/fonts/TheCaliforniaSerif.woff2", display: "swap", variable: '--font-california', weight: '400' });

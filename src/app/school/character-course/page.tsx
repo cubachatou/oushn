@@ -1,18 +1,18 @@
-import Button from "@/app/components/Button";
+import CustomButton from "@/app/components/CustomButton";
+import EnrollForm from "@/app/components/EnrollForm";
 import CourseAuthorSection from "@/app/components/sections/CourseAuthor";
 import IntroTextSection from "@/app/components/sections/IntroText";
 import VideoIntro from "@/app/components/VideoIntro";
 import WhiteWrapperLayout from "@/app/layouts/white-wrapper";
-import gif from "@images/character02_render 2.gif";
-import liza from "@images/team/liza.jpg";
-import video from "@videos/header_character_v2.mp4";
-import Image from "next/image";
 import {
   Dialog,
   DialogContent,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import EnrollForm from "@/app/components/EnrollForm";
+import gif from "@images/character02_render 2.gif";
+import liza from "@images/team/liza.jpg";
+import video from "@videos/header_character_v2.mp4";
+import Image from "next/image";
 
 export default function CharacterCoursePage() {
   return (
@@ -71,7 +71,7 @@ export default function CharacterCoursePage() {
 
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button as="button" type="button" className="button bg-middle-pink">записатись в групу</Button>
+                  <CustomButton as="button" type="button" className="button bg-middle-pink">записатись в групу</CustomButton>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[560px]">
                   <EnrollForm />
