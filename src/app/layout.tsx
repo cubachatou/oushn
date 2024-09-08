@@ -3,8 +3,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import localFont from 'next/font/local';
 //
-import Footer from "./components/footer";
-import Header from "./components/header";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 //
 const california = localFont({ src: "../../public/fonts/TheCaliforniaSerif.woff2", display: "swap", variable: '--font-california', weight: '400' });
 const gillRegular = localFont({ src: "../../public/fonts/GillSansC-Regular.woff2", display: "swap", variable: '--font-gill-regular', weight: '400' });

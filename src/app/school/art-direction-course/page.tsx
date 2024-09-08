@@ -1,15 +1,16 @@
-import Image from "next/image";
-import IntroTextSection from "@/app/components/sections/intro-text";
-import VideoIntro from "@/app/components/video-intro";
+import CourseAuthorSection from "@/app/components/sections/CourseAuthor";
+import IntroTextSection from "@/app/components/sections/IntroText";
+import VideoIntro from "@/app/components/VideoIntro";
 import WhiteWrapperLayout from "@/app/layouts/white-wrapper";
 import liza from "@images/team/liza.jpg";
-import CourseAuthorSection from "@/app/components/sections/course-athour";
+import video from "@videos/artdirection_for site_v2.mp4";
+import Image from "next/image";
 
 export default function ArtDirectionCoursePage() {
   return (
     <main>
 
-      <VideoIntro />
+      <VideoIntro video={video} />
 
       <WhiteWrapperLayout>
         <IntroTextSection title="Art direction in Motion design course" description="Це курс про режисуру моушн дизайн відео. Про те, як робити комерційні експлейнери та власні творчі короткометражні анімаційні роботи. 

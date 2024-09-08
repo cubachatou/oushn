@@ -1,35 +1,58 @@
-import logo from "@images/logos/logo-red.svg";
+import Link from "next/link";
 import Image from "next/image";
-import Footer from "./components/footer";
-import Header from "./components/header";
-import IntroTextSection from "./components/sections/intro-text";
-import VideoIntro from "./components/video-intro";
+//
+import video from "@videos/intro.mp4";
+import IntroTextSection from "./components/sections/IntroText";
+import VideoIntro from "./components/VideoIntro";
 import WhiteWrapperLayout from "./layouts/white-wrapper";
-
+//
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
 // 
 const clientImages: any[] = [];
 for (let i = 1; i <= 12; i++) {
   clientImages.push(require(`@images/clients/client_${String(i).padStart(2, '0')}.svg`));
 }
+//
+async function getWorks() {
+  const query = `
+  *[_type == "work"] {
+    name,
+    "currentSlug": slug.current,
+    "src": image.asset._ref
+  }`;
 
-export default function Home() {
+  const works = await client.fetch(query);
+
+  return works;
+}
+
+
+export default async function Home() {
+  const works = await getWorks();
+
   return (
     <>
 
-      <VideoIntro />
+      <VideoIntro video={video} />
 
       <WhiteWrapperLayout>
+
         <IntroTextSection title="in love with animation" description="We’re Oushn, an animation and motion design studio from Ukraine, working worldwide. We create bright explainers, illustrations and cool animated content for brands with focus on storytelling and emotions. We do all cycle of animation production - from idea to last details in sound design" titleColor="text-dark-terra-cotta" />
 
         <section className="pb-8">
           <div className="container">
             <div className="flex flex-col items-center gap-32">
-              <div className="grid grid-cols-3 gap-x-8 gap-y-16">
-                {Array.from({ length: 6 }).map((_, index) => (
-                  <figure key={index} className="flex flex-col items-center text-center gap-4">
-                    <Image src="https://dummyimage.com/600/04ab55/ffffff" alt="" width={400} height={400} className="w-full aspect-[16/12] object-cover" />
+              <div className="w-full grid grid-cols-3 gap-x-8 gap-y-16">
+                {works.map((work: any) => (
+                  <figure key={work.name} className="flex flex-col items-center text-center gap-4">
+                    <Link href={`/works/${work.currentSlug}`} className="overflow-hidden relative w-full aspect-[16/12] group">
+                      <Image src={urlFor(work.src).url()} alt="" width={480} height={360} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                    </Link>
                     <figcaption>
-                      <h3 className="h3">Pumb values</h3>
+                      <Link href={`/works/${work.currentSlug}`}>
+                        <h3 className="h3 text-dark-terra-cotta">{work.name}</h3>
+                      </Link>
                     </figcaption>
                   </figure>
                 ))}
