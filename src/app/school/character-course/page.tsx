@@ -1,3 +1,4 @@
+import Button from "@/app/components/Button";
 import CourseAuthorSection from "@/app/components/sections/CourseAuthor";
 import IntroTextSection from "@/app/components/sections/IntroText";
 import VideoIntro from "@/app/components/VideoIntro";
@@ -61,7 +62,7 @@ export default function CharacterCoursePage() {
           <div className="container">
             <div className="flex flex-col items-center gap-10 text-center">
               <strong className="inline-block max-w-64 h4 text-pretty">Вартість&nbsp;воркшопу&nbsp;- 3000 грн *</strong>
-              <button type="button" className="button bg-middle-pink">записатись в групу</button>
+              <Button as="button" type="button" className="button bg-middle-pink">записатись в групу</Button>
               <strong className="inline-block p-base font-GillLight">*Для студентів Режисерського курсу діє знижка, напишіть мені!</strong>
             </div>
           </div>

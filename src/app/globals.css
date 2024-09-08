@@ -16,6 +16,18 @@
   }
 } */
 
+@layer base {
+  fieldset {
+    @apply flex flex-col gap-2;
+  }
+  input, textarea {
+    @apply py-2 px-4 border rounded-xl border-black;
+  }
+  textarea {
+    @apply resize-none;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -43,6 +55,6 @@
 
 @layer components {
   .button {
-    @apply inline-flex px-12 py-3 rounded-full bg-black text-white hover:scale-95 transition-transform duration-200;
+    @apply inline-flex justify-center px-12 py-3 rounded-full bg-black text-white text-center hover:scale-95 transition-transform duration-200;
   }
 }

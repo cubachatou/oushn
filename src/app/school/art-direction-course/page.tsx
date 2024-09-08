@@ -1,3 +1,5 @@
+import Button from "@/app/components/Button";
+import EnrollModal from "@/app/components/modals/EnrollModal";
 import CourseAuthorSection from "@/app/components/sections/CourseAuthor";
 import IntroTextSection from "@/app/components/sections/IntroText";
 import VideoIntro from "@/app/components/VideoIntro";
@@ -84,7 +86,7 @@ export default function ArtDirectionCoursePage() {
           <div className="container">
             <div className="flex flex-col items-center gap-10 text-center">
               <strong className="inline-block max-w-56 h4">Вартість курсу - 8000 грн</strong>
-              <button type="button" className="button bg-royal-blue">записатись в групу</button>
+              <Button as="button" type="button" className="button bg-royal-blue">записатись в групу</Button>
               <strong className="inline-block max-w-56 h4">Наступна група - листопад 2024</strong>
             </div>
           </div>
@@ -110,6 +112,8 @@ export default function ArtDirectionCoursePage() {
           </div>
         </section>
       </WhiteWrapperLayout>
+
+      <EnrollModal />
       
     </main>
   );
