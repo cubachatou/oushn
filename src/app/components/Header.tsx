@@ -20,6 +20,7 @@ export default function Header() {
   const logoWhite = pathname === "/school/character-course" ? logoWhitePink : pathname === "/school/art-direction-course" ? logoWhiteBlue : logoWhiteRed;
   const isActive = (path: string) => pathname === path;
   const isSchoolPath = pathname.includes("/school");
+  const isWorksPath = pathname.includes("/works");
   const isHidden = pathname.includes("/studio");
   //
   const [zIndex, setZIndex] = useState(0);
@@ -39,7 +40,7 @@ export default function Header() {
 
   return (
     <header className="absolute inset-0 z-10 pointer-events-none" hidden={isHidden}>
-      <div className="h-[77.5vh]"></div>
+      <div className="h-[77.5vh]" hidden={isWorksPath}></div>
 
       <div className="sticky top-0 py-8">
         <div className="container max-w-none md:px-8">
