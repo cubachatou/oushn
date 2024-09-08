@@ -7,6 +7,12 @@ import gif from "@images/character02_render 2.gif";
 import liza from "@images/team/liza.jpg";
 import video from "@videos/header_character_v2.mp4";
 import Image from "next/image";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import EnrollForm from "@/app/components/EnrollForm";
 
 export default function CharacterCoursePage() {
   return (
@@ -62,7 +68,16 @@ export default function CharacterCoursePage() {
           <div className="container">
             <div className="flex flex-col items-center gap-10 text-center">
               <strong className="inline-block max-w-64 h4 text-pretty">Вартість&nbsp;воркшопу&nbsp;- 3000 грн *</strong>
-              <Button as="button" type="button" className="button bg-middle-pink">записатись в групу</Button>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button as="button" type="button" className="button bg-middle-pink">записатись в групу</Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[560px]">
+                  <EnrollForm />
+                </DialogContent>
+              </Dialog>
+              
               <strong className="inline-block p-base font-GillLight">*Для студентів Режисерського курсу діє знижка, напишіть мені!</strong>
             </div>
           </div>

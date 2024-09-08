@@ -1,5 +1,5 @@
 import Button from "@/app/components/Button";
-import EnrollModal from "@/app/components/modals/EnrollModal";
+import EnrollForm from "@/app/components/EnrollForm";
 import CourseAuthorSection from "@/app/components/sections/CourseAuthor";
 import IntroTextSection from "@/app/components/sections/IntroText";
 import VideoIntro from "@/app/components/VideoIntro";
@@ -7,6 +7,11 @@ import WhiteWrapperLayout from "@/app/layouts/white-wrapper";
 import liza from "@images/team/liza.jpg";
 import video from "@videos/artdirection_for site_v2.mp4";
 import Image from "next/image";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function ArtDirectionCoursePage() {
   return (
@@ -86,7 +91,16 @@ export default function ArtDirectionCoursePage() {
           <div className="container">
             <div className="flex flex-col items-center gap-10 text-center">
               <strong className="inline-block max-w-56 h4">Вартість курсу - 8000 грн</strong>
-              <Button as="button" type="button" className="button bg-royal-blue">записатись в групу</Button>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button as="button" type="button" className="button bg-royal-blue">записатись в групу</Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[560px]">
+                  <EnrollForm />
+                </DialogContent>
+              </Dialog>
+
               <strong className="inline-block max-w-56 h4">Наступна група - листопад 2024</strong>
             </div>
           </div>
@@ -113,8 +127,6 @@ export default function ArtDirectionCoursePage() {
         </section>
       </WhiteWrapperLayout>
 
-      <EnrollModal />
-      
     </main>
   );
 }
