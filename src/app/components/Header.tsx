@@ -45,7 +45,7 @@ export default function Header() {
         <div className="container max-w-none md:px-8">
           <div className="flex items-center justify-between gap-8">
             <a href="#" className="pointer-events-auto">
-              <Image src={logo} alt="logo" />
+              <Image src={logo} alt="logo" className="md:w-52 w-40" />
             </a>
 
             <button onClick={menuOpen} className="pointer-events-auto flex items-center justify-center size-12 rounded-full shadow-[0px_0px_8px_-4px] shadow-black bg-white">
@@ -59,7 +59,7 @@ export default function Header() {
         <div className="container max-w-none md:px-8 py-8">
           <div className="flex items-center justify-between gap-8">
             <a href="#" className="pointer-events-auto">
-              <Image src={logoWhite} alt="logo" />
+              <Image src={logoWhite} alt="logo" className="md:w-52 w-40" />
             </a>
 
             <button onClick={menuClose} className="pointer-events-auto flex items-center justify-center size-12 rounded-full shadow-[0px_0px_8px_-4px] shadow-black bg-white">
