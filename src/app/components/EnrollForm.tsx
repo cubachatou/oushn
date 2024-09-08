@@ -73,7 +73,7 @@ export default function EnrollForm() {
 
         <FormField control={form.control} name="name" render={({ field }) => (
           <FormItem>
-            <FormLabel className="p-base">Ім'я</FormLabel>
+            <FormLabel className="p-base">Ім&apos;я</FormLabel>
             <FormControl>
               <Input className="p-base font-GillLight" placeholder="Ім'я" {...field} />
             </FormControl>
