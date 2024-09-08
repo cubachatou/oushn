@@ -15,7 +15,7 @@ export default function CourseAuthorSection({ name, title, image, bgColor }: Aut
           <Image src={image} alt="Liza Tarasova" className="object-cover" />
 
           <div className="flex flex-col max-md:items-center gap-4">
-            <div className="mb-auto flex flex-col max-md:items-center gap-4">
+            <div className="mb-auto flex flex-col max-md:items-center gap-4 max-md:text-center">
               <span className="lg:h2 md:h3 h2">Ліза Тарасова</span>
               <p className="p-medium">Кураторка курсу та
                 авторка програми</p>

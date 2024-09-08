@@ -37,7 +37,7 @@ export default function ArtDirectionCoursePage() {
               <p className="p-base">12 відео уроків, кожен тиждень живий вебінар з лекціями та спілкуванням, безлімітна менторська підтримка і в кінці курсу - готова власна анімаційна робота! А головне - покрокове розуміння того, як самостійно вести моушн проект від ідеї до фінального рендеру.</p>
             </div>
 
-            <div className="max-w-screen-xl mx-auto flex flex-col lg:grid grid-cols-[40%,1fr] grid-rows-[auto,auto] gap-y-6 xl:gap-x-32 gap-x-24 xl:my-32 my-24">
+            <div className="max-w-screen-xl mx-auto flex flex-col lg:grid grid-cols-[40%,1fr] grid-rows-[auto,auto] gap-y-6 xl:gap-x-32 gap-x-24 xl:my-32 sm:my-24 my-16">
               <h3 className="h5 col-span-2">відеоуроки:</h3>
 
               <div className="w-full h-auto bg-gray aspect-[16/12]"></div>
@@ -58,7 +58,7 @@ export default function ArtDirectionCoursePage() {
               </ul>
             </div>
 
-            <div className="max-w-screen-xl mx-auto flex flex-col lg:grid grid-cols-[40%,1fr] grid-rows-[auto,auto] gap-y-6 xl:gap-x-32 gap-x-24 xl:my-32 my-24">
+            <div className="max-w-screen-xl mx-auto flex flex-col lg:grid grid-cols-[40%,1fr] grid-rows-[auto,auto] gap-y-6 xl:gap-x-32 gap-x-24 xl:my-32 sm:my-24 my-16">
               <h3 className="h5 col-span-2">вебінари:</h3>
 
               <div className="w-full h-auto bg-gray aspect-[16/12]"></div>
@@ -113,7 +113,7 @@ export default function ArtDirectionCoursePage() {
           </div>
         </section>
 
-        <section className="py-16 xl:pb-32 md:pb-24 pb-16">
+        <section className="xl:pb-32 md:pb-24 pb-16">
           <div className="container">
             <div className="flex flex-col xl:gap-16 gap-8">
               <h3 className="xl:h2 h3 text-royal-blue">Відгуки студентів</h3>
