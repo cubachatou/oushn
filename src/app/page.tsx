@@ -8,11 +8,58 @@ import WhiteWrapperLayout from "./layouts/white-wrapper";
 //
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 // 
-const clientImages: any[] = [];
-for (let i = 1; i <= 12; i++) {
-  clientImages.push(require(`@images/clients/client_${String(i).padStart(2, '0')}.svg`));
-}
+const clientLogos: { src: StaticImport, alt: string }[] = [
+  {
+    src: require("@images/clients/client_01.svg"),
+    alt: "SOVA *jewelry house",
+  },
+  {
+    src: require("@images/clients/client_02.svg"),
+    alt: "ПУМБ",
+  },
+  {
+    src: require("@images/clients/client_03.svg"),
+    alt: "Planeta Kino",
+  },
+  {
+    src: require("@images/clients/client_04.svg"),
+    alt: "LOREAL",
+  },
+  {
+    src: require("@images/clients/client_05.svg"),
+    alt: "Fora",
+  },
+  {
+    src: require("@images/clients/client_06.svg"),
+    alt: "obmy",
+  },
+  {
+    src: require("@images/clients/client_07.svg"),
+    alt: "drama queen",
+  },
+  {
+    src: require("@images/clients/client_08.svg"),
+    alt: "LA ROCHE-POSAY",
+  },
+  {
+    src: require("@images/clients/client_09.svg"),
+    alt: "Дарниця",
+  },
+  {
+    src: require("@images/clients/client_10.svg"),
+    alt: "Ukraїner",
+  },
+  {
+    src: require("@images/clients/client_11.svg"),
+    alt: "ARTERIUM",
+  },
+  {
+    src: require("@images/clients/client_12.svg"),
+    alt: "banda",
+  },
+];
 //
 async function getWorks() {
   const query = `
@@ -69,9 +116,9 @@ export default async function Home() {
               <h2 className="h2">Our clients</h2>
 
               <div className="w-full grid 2xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-x-8 gap-y-16">
-                {clientImages.map((src, index) => (
-                  <div key={index} className="flex justify-center">
-                    <Image src={src} alt="" />
+                {clientLogos.map((client) => (
+                  <div key={client.alt} className="flex justify-center">
+                    <Image src={client.src} alt={client.alt} />
                   </div>
                 ))}
               </div>

@@ -19,6 +19,8 @@ import {
 import liza from "@images/team/liza.jpg";
 import video from "@videos/artdirection_for site_v2.mp4";
 import Image from "next/image";
+import gif1 from "@images/art-direction-course/site gif 01.gif";
+import gif2 from "@images/art-direction-course/site gif 02.gif";
 
 export default function ArtDirectionCoursePage() {
   return (
@@ -40,7 +42,7 @@ export default function ArtDirectionCoursePage() {
             <div className="max-w-screen-xl mx-auto flex flex-col lg:grid grid-cols-[40%,1fr] grid-rows-[auto,auto] gap-y-6 xl:gap-x-32 gap-x-24 xl:my-32 sm:my-24 my-16">
               <h3 className="h5 col-span-2">відеоуроки:</h3>
 
-              <div className="w-full h-auto bg-gray aspect-[16/12]"></div>
+              <Image src={gif1} alt="Відеоуроки" className="w-full h-auto bg-gray aspect-[16/12]" />
 
               <ul className="list-disc list-inside p-medium [&_*:not(:last-child)]:pb-4">
                 <li>Брейншторм ідей</li>
@@ -61,7 +63,7 @@ export default function ArtDirectionCoursePage() {
             <div className="max-w-screen-xl mx-auto flex flex-col lg:grid grid-cols-[40%,1fr] grid-rows-[auto,auto] gap-y-6 xl:gap-x-32 gap-x-24 xl:mt-32 sm:mt-24 mt-16">
               <h3 className="h5 col-span-2">вебінари:</h3>
 
-              <div className="w-full h-auto bg-gray aspect-[16/12]"></div>
+              <Image src={gif2} alt="Вебінари" className="w-full h-auto bg-gray aspect-[16/12]" />
 
               <ul className="list-disc list-inside p-medium [&_*:not(:last-child)]:pb-4">
                 <li>Режисер анімації - структура роботи над комерційною анімацією та мультсеріалами</li>

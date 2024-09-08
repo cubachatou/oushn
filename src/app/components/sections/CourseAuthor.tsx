@@ -1,13 +1,25 @@
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image, { StaticImageData } from "next/image";
 
-interface AuthorProps {
-  name: string,
-  title: string,
-  image: StaticImageData,
-  bgColor: string,
-}
+const socials: { icon: StaticImport, link: string, alt: string }[] = [
+  {
+    icon: require("@images/socials/instagram.svg"),
+    link: 'https://www.instagram.com/yelizatarasova/',
+    alt: "Instagram автора"
+  },
+  {
+    icon: require("@images/socials/instagram.svg"),
+    link: 'https://www.instagram.com/2.5__d/ ',
+    alt: "Instagram курсу"
+  },
+  {
+    icon: require("@images/socials/youtube.svg"),
+    link: 'https://www.youtube.com/@2.5__d',
+    alt: "Yotube канал курсу"
+  },
+];
 
-export default function CourseAuthorSection({ name, title, image, bgColor }: AuthorProps) {
+export default function CourseAuthorSection({ name, title, image, bgColor }: { name: string, title: string, image: StaticImageData, bgColor: string }) {
   return (
     <section className={`py-16 text-white ${bgColor ? `${bgColor}` : 'bg-inherit'}`}>
       <div className="container">
@@ -22,9 +34,13 @@ export default function CourseAuthorSection({ name, title, image, bgColor }: Aut
             </div>
 
             <ul className="w-fit flex sm:grid grid-cols-2 gap-4">
-              <li className="size-16 rounded-full bg-gray"></li>
-              <li className="size-16 rounded-full bg-gray"></li>
-              <li className="size-16 rounded-full bg-gray"></li>
+              {socials.map((social) => (
+                <li key={social.alt}>
+                  <a href={social.link} target="_blank" rel="noreferrer nofollow" className="inline-flex items-center justify-center size-12 rounded-full bg-royal-blue">
+                    <Image src={social.icon} alt={social.alt} />
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

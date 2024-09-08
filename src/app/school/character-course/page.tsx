@@ -9,7 +9,8 @@ import {
   DialogContent,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import gif from "@images/character02_render 2.gif";
+import gif1 from "@images/character-course/character02_render 2.gif";
+import gif2 from "@images/character-course/character02_render 3.gif";
 import liza from "@images/team/liza.jpg";
 import video from "@videos/header_character_v2.mp4";
 import Image from "next/image";
@@ -25,7 +26,7 @@ export default function CharacterCoursePage() {
 
         <section>
           <div className="container max-w-screen-sm">
-            <Image src="https://dummyimage.com/600/04ab55/ffffff" alt="" width={600} height={600} className="md:mb-24 mb-12 w-full aspect-[16/10] object-cover" />
+            <Image src={gif1} alt="Програма курсу" className="md:mb-24 mb-12 w-full aspect-[16/10] object-cover" />
 
             <div className="sm:my-16 my-8 flex flex-col ms:gap-8 gap-4">
               <h2 className="h2 text-middle-pink text-center">Програма</h2>
@@ -53,7 +54,7 @@ export default function CharacterCoursePage() {
               </li>
             </ul>
 
-            <Image src={gif} alt="gif" className="md:mt-24 mt-12 sm:mb-16 mb-8 w-full aspect-video object-cover" />
+            <Image src={gif2} alt="Для кого воркшоп?" className="md:mt-24 mt-12 sm:mb-16 mb-8 w-full aspect-video object-cover" />
 
             <div className="sm:mt-20 mt-12 sm:mb-24 mb-16 flex flex-col sm:gap-8 gap-4">
               <h2 className="sm:h2 h3 text-center">Для кого воркшоп?</h2>
