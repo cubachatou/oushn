@@ -69,7 +69,7 @@ export default function EnrollForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 p-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 p-4 max-md:px-0">
 
         <FormField control={form.control} name="name" render={({ field }) => (
           <FormItem>

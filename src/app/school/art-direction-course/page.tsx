@@ -30,14 +30,14 @@ export default function ArtDirectionCoursePage() {
         <IntroTextSection title="Art direction in Motion design course" description="Це курс про режисуру моушн дизайн відео. Про те, як робити комерційні експлейнери та власні творчі короткометражні анімаційні роботи. 
         Він побудований навколо створення одного проєкту, від пошуку ідеї та написання сценарію до дизайну сцен та створення готової фінальної анімації." titleColor="text-royal-blue" maxWidth={640} />
 
-        <section className="py-32 bg-royal-blue text-white">
+        <section className="xl:py-32 md:py-24 py-16 bg-royal-blue text-white">
           <div className="container">
             <div className="max-w-screen-sm mx-auto flex flex-col gap-8 text-center">
               <h2 className="h2">Програма курсу</h2>
               <p className="p-base">12 відео уроків, кожен тиждень живий вебінар з лекціями та спілкуванням, безлімітна менторська підтримка і в кінці курсу - готова власна анімаційна робота! А головне - покрокове розуміння того, як самостійно вести моушн проект від ідеї до фінального рендеру.</p>
             </div>
 
-            <div className="max-w-screen-xl mx-auto grid grid-cols-[40%,1fr] grid-rows-[auto,auto] gap-y-6 gap-x-32 my-32">
+            <div className="max-w-screen-xl mx-auto flex flex-col lg:grid grid-cols-[40%,1fr] grid-rows-[auto,auto] gap-y-6 xl:gap-x-32 gap-x-24 xl:my-32 my-24">
               <h3 className="h5 col-span-2">відеоуроки:</h3>
 
               <div className="w-full h-auto bg-gray aspect-[16/12]"></div>
@@ -58,7 +58,7 @@ export default function ArtDirectionCoursePage() {
               </ul>
             </div>
 
-            <div className="max-w-screen-xl mx-auto grid grid-cols-[40%,1fr] grid-rows-[auto,auto] gap-y-6 gap-x-32 my-32">
+            <div className="max-w-screen-xl mx-auto flex flex-col lg:grid grid-cols-[40%,1fr] grid-rows-[auto,auto] gap-y-6 xl:gap-x-32 gap-x-24 xl:my-32 my-24">
               <h3 className="h5 col-span-2">вебінари:</h3>
 
               <div className="w-full h-auto bg-gray aspect-[16/12]"></div>
@@ -75,12 +75,12 @@ export default function ArtDirectionCoursePage() {
           </div>
         </section>
 
-        <section className="pt-16 pb-20">
+        <section className="pt-16 sm:pb-20 pb-16">
           <div className="container">
             <div className="container">
-              <div className="flex flex-col items-center gap-8">
-                <h2 className="h2">Для кого курс?</h2>
-                <ul className="max-w-screen-md p-medium p-medium [&_*:not(:last-child)]:pb-4">
+              <div className="flex flex-col items-center sm:gap-8 gap-6">
+                <h2 className="sm:h2 h3">Для кого курс?</h2>
+                <ul className="max-w-screen-md p-medium p-medium sm:[&_*:not(:last-child)]:pb-4 [&_*:not(:last-child)]:pb-3">
                   <li>— для початківців, які вже вміють анімувати, але не мають практики комплексного створення проєкту</li>
                   <li>— для моушн дизайнерів, які втомились від реалізації клієнтських ідей і хочуть втілити власне режисерське бачення</li>
                   <li>— для тих, в кого є ідея, але нема системності</li>
@@ -94,7 +94,7 @@ export default function ArtDirectionCoursePage() {
 
         <CourseAuthorSection name="Ліза Тарасова" title="Кураторка курсу та авторка програми" image={liza} bgColor="bg-royal-blue" />
 
-        <section className="py-24">
+        <section className="md:py-24 py-16">
           <div className="container">
             <div className="flex flex-col items-center gap-10 text-center">
               <strong className="inline-block max-w-56 h4">Вартість курсу - 8000 грн</strong>
@@ -113,31 +113,21 @@ export default function ArtDirectionCoursePage() {
           </div>
         </section>
 
-        <section className="py-16 pb-32">
+        <section className="py-16 xl:pb-32 md:pb-24 pb-16">
           <div className="container">
-            <div className="flex flex-col gap-16">
-              <h3 className="h2 text-royal-blue">Відгуки студентів</h3>
+            <div className="flex flex-col xl:gap-16 gap-8">
+              <h3 className="xl:h2 h3 text-royal-blue">Відгуки студентів</h3>
 
               <Carousel opts={{ align: "start" }} className="w-full">
-                <CarouselContent className="-ml-10">
-                  <CarouselItem className="basis-1/4 pl-10">
-                    <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="aspect-[16/12] object-cover" />
-                  </CarouselItem>
-                  <CarouselItem className="basis-1/4 pl-10">
-                    <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="aspect-[16/12] object-cover" />
-                  </CarouselItem>
-                  <CarouselItem className="basis-1/4 pl-10">
-                    <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="aspect-[16/12] object-cover" />
-                  </CarouselItem>
-                  <CarouselItem className="basis-1/4 pl-10">
-                    <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="aspect-[16/12] object-cover" />
-                  </CarouselItem>
-                  <CarouselItem className="basis-1/4 pl-10">
-                    <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="aspect-[16/12] object-cover" />
-                  </CarouselItem>
+                <CarouselContent className="md:-ml-10">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <CarouselItem key={i} className="md:basis-auto basis-full md:pl-10">
+                      <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="mx-auto aspect-[16/12] object-cover" />
+                    </CarouselItem>
+                  ))}
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
+                {/* <CarouselPrevious />
+                <CarouselNext /> */}
               </Carousel>
 
             <a href="#" className="button self-center bg-royal-blue">дивитись роботи</a>

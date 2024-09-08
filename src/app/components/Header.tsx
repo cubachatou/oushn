@@ -68,13 +68,13 @@ export default function Header() {
           </div>
 
           <nav className="absolute -z-1 inset-0 w-full h-full text-white">
-            <ul className="pointer-events-auto h-full flex flex-col items-center justify-center gap-4 text-9xl font-California text-center">
+            <ul className="pointer-events-auto h-full flex flex-col items-center justify-center gap-[0.25em] md:text-9xl text-7xl font-California text-center">
               <li className={`hover:text-dark-terra-cotta transition-colors ${isActive("/") ? "text-dark-terra-cotta" : ""}`}>
                 <Link onClick={menuClose} href="/">Studio</Link>
               </li>
               <li>
                 <span className={`cursor-default ${isSchoolPath ? "text-[#FFE227]" : ""}`}>School:</span>
-                <ul className="text-7xl">
+                <ul className="md:text-7xl sm:text-5xl text-4xl">
                   <li className={`hover:text-royal-blue transition-colors ${isActive("/school/art-direction-course") ? "text-royal-blue" : ""}`}>
                     <Link onClick={menuClose} href="/school/art-direction-course">Art Direction Course</Link>
                   </li>

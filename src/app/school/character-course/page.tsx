@@ -25,14 +25,14 @@ export default function CharacterCoursePage() {
 
         <section>
           <div className="container max-w-screen-sm">
-            <Image src="https://dummyimage.com/600/04ab55/ffffff" alt="" width={600} height={600} className="mb-24 w-full aspect-[16/10] object-cover" />
+            <Image src="https://dummyimage.com/600/04ab55/ffffff" alt="" width={600} height={600} className="md:mb-24 mb-12 w-full aspect-[16/10] object-cover" />
 
-            <div className="my-16 flex flex-col gap-8">
+            <div className="sm:my-16 my-8 flex flex-col ms:gap-8 gap-4">
               <h2 className="h2 text-middle-pink text-center">Програма</h2>
               <p className="p-base text-center text-pretty">3 уроки в записі - дивись в зручний для тебе час. Підготовлені під анімацію файли для роботи на воркшопі та виконання домашніх завдань. Чатик для комунікації з іншими студентами воркшопу та отримання фідбеку на домашки.</p>
             </div>
 
-            <ul className="my-16 list-disc list-inside marker:text-middle-pink p-medium [&_li:not(:last-child)]:mb-[0.75em] [&_span]:-ml-[0.5em] [&_span]:text-middle-pink">
+            <ul className="sm:my-16 my-8 list-disc list-inside marker:text-middle-pink p-medium [&_li:not(:last-child)]:mb-[0.75em] [&_span]:-ml-[0.5em] [&_span]:text-middle-pink">
               <li>
                 <span>Теорія.</span> Лекція про акцентну персонажку
               </li>
@@ -53,10 +53,10 @@ export default function CharacterCoursePage() {
               </li>
             </ul>
 
-            <Image src={gif} alt="gif" className="mt-24 mb-16 w-full aspect-video object-cover" />
+            <Image src={gif} alt="gif" className="md:mt-24 mt-12 sm:mb-16 mb-8 w-full aspect-video object-cover" />
 
-            <div className="mt-20 mb-24 flex flex-col gap-8">
-              <h2 className="h2 text-center">Для кого воркшоп?</h2>
+            <div className="sm:mt-20 mt-12 sm:mb-24 mb-16 flex flex-col sm:gap-8 gap-4">
+              <h2 className="sm:h2 h3 text-center">Для кого воркшоп?</h2>
               <p className="p-base text-center text-pretty">Для моушн дизайнерів та аніматорів, які вже вміють анімувати персонажів в After Effects, але прагнуть поглибити свої знання та покращити навички. Зауважте - воркшоп рівня middle - ми не будемо вивчати основи персонажної анімації та ріггінгу.</p>
             </div>
           </div>

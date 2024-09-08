@@ -42,8 +42,8 @@ export default async function Home() {
 
         <section className="pb-8">
           <div className="container">
-            <div className="flex flex-col items-center gap-32">
-              <div className="w-full grid grid-cols-3 gap-x-8 gap-y-16">
+            <div className="flex flex-col items-center lg:gap-32 sm:gap-24 gap-16">
+              <div className="w-full grid xl:grid-cols-3 md:grid-cols-2 gap-x-8 gap-y-16">
                 {works.map((work: any) => (
                   <figure key={work.name} className="flex flex-col items-center text-center gap-4">
                     <Link href={`/works/${work.currentSlug}`} className="overflow-hidden relative w-full aspect-[16/12] group">
@@ -51,7 +51,7 @@ export default async function Home() {
                     </Link>
                     <figcaption>
                       <Link href={`/works/${work.currentSlug}`}>
-                        <h3 className="h3 text-dark-terra-cotta">{work.name}</h3>
+                        <h3 className="lg:h3 md:h4 h3 text-dark-terra-cotta">{work.name}</h3>
                       </Link>
                     </figcaption>
                   </figure>
@@ -63,12 +63,12 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="py-32">
+        <section className="md:py-32 sm:py-24 py-16">
           <div className="container max-w-none">
-            <div className="flex flex-col items-center gap-24">
+            <div className="flex flex-col items-center md:gap-24 gap-16">
               <h2 className="h2">Our clients</h2>
 
-              <div className="w-full grid grid-cols-6 gap-x-8 gap-y-16">
+              <div className="w-full grid 2xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-x-8 gap-y-16">
                 {clientImages.map((src, index) => (
                   <div key={index} className="flex justify-center">
                     <Image src={src} alt="" />
