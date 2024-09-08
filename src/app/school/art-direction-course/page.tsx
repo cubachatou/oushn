@@ -58,7 +58,7 @@ export default function ArtDirectionCoursePage() {
               </ul>
             </div>
 
-            <div className="max-w-screen-xl mx-auto flex flex-col lg:grid grid-cols-[40%,1fr] grid-rows-[auto,auto] gap-y-6 xl:gap-x-32 gap-x-24 xl:my-32 sm:my-24 my-16">
+            <div className="max-w-screen-xl mx-auto flex flex-col lg:grid grid-cols-[40%,1fr] grid-rows-[auto,auto] gap-y-6 xl:gap-x-32 gap-x-24 xl:mt-32 sm:mt-24 mt-16">
               <h3 className="h5 col-span-2">вебінари:</h3>
 
               <div className="w-full h-auto bg-gray aspect-[16/12]"></div>
