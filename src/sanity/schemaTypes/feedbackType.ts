@@ -12,7 +12,7 @@ export const feedbackType = defineType({
     }),
     defineField({
       name: 'text',
-      type: 'string',
+      type: 'text',
       title: 'Feedback Text',
     }),
     defineField({
