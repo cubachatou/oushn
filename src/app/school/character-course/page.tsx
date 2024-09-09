@@ -1,4 +1,3 @@
-import CustomButton from "@/app/components/CustomButton";
 import EnrollForm from "@/app/components/EnrollForm";
 import CourseAuthorSection from "@/app/components/sections/CourseAuthor";
 import IntroTextSection from "@/app/components/sections/IntroText";
@@ -72,7 +71,7 @@ export default function CharacterCoursePage() {
 
               <Dialog>
                 <DialogTrigger asChild>
-                  <CustomButton as="button" type="button" className="button bg-middle-pink">записатись в групу</CustomButton>
+                  <button type="button" className="button bg-middle-pink">записатись в групу</button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[560px]">
                   <EnrollForm />

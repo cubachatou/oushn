@@ -16,7 +16,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import CustomButton from "./CustomButton";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -111,7 +110,7 @@ export default function EnrollForm() {
           </FormItem>
         )} />
 
-        <CustomButton as="button" type="submit" className="button w-full mt-4">Записатися</CustomButton>
+        <button type="submit" className="button w-full mt-4">Записатися</button>
       </form>
     </Form>
   );

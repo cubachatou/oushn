@@ -1,4 +1,3 @@
-import CustomButton from "@/app/components/CustomButton";
 import EnrollForm from "@/app/components/EnrollForm";
 import CourseAuthorSection from "@/app/components/sections/CourseAuthor";
 import IntroTextSection from "@/app/components/sections/IntroText";
@@ -22,7 +21,26 @@ import Image from "next/image";
 import gif1 from "@images/art-direction-course/site gif 01.gif";
 import gif2 from "@images/art-direction-course/site gif 02.gif";
 
-export default function ArtDirectionCoursePage() {
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+async function getFeedbacks() {
+  const query = `
+  *[_type == "feedbacks"]
+  {
+    name,
+    text,
+    "img": avatar.asset._ref
+  }`;
+
+  const feedbacks = await client.fetch(query);
+
+  return feedbacks;
+}
+
+export default async function ArtDirectionCoursePage() {
+  const feedbacks = await getFeedbacks();
+
   return (
     <main>
 
@@ -103,7 +121,7 @@ export default function ArtDirectionCoursePage() {
 
               <Dialog>
                 <DialogTrigger asChild>
-                  <CustomButton as="button" type="button" className="button bg-royal-blue">записатись в групу</CustomButton>
+                  <button type="button" className="button bg-royal-blue">записатись в групу</button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[560px]">
                   <EnrollForm />
@@ -122,17 +140,24 @@ export default function ArtDirectionCoursePage() {
 
               <Carousel opts={{ align: "start" }} className="w-full">
                 <CarouselContent className="md:-ml-10">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <CarouselItem key={i} className="md:basis-auto basis-full md:pl-10">
-                      <Image src="https://dummyimage.com/400/04ab55/ffffff" width={400} height={400} alt="" className="mx-auto aspect-[16/12] object-cover" />
+                  {feedbacks.map((feedback: {name:string, text:string, img: SanityImageSource}) => (
+                    <CarouselItem key={feedback.name} className="pl-10 basis-1/2">
+                      <figure className="flex items-start gap-6 py-8 px-6 bg-gray">
+                        <Image src={urlFor(feedback.img).url()} alt={feedback.name} width={96} height={96} className="basis-24 shrink-0 rounded-full" />
+
+                        <div className="flex flex-col gap-4">
+                          <p className="p-base">{feedback.text}</p>
+                          <span className="h5 text-white">{feedback.name}</span>
+                        </div>
+                      </figure>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                {/* <CarouselPrevious />
-                <CarouselNext /> */}
+                <CarouselPrevious className="top-[110%] left-0 size-12 [&_svg]:size-6" />
+                <CarouselNext className="top-[110%] right-0 size-12 [&_svg]:size-6" />
               </Carousel>
 
-            <a href="#" className="button self-center bg-royal-blue">дивитись роботи</a>
+            <a href="https://www.instagram.com/2.5__d/" rel="noreferrer nofollow" target="_blank" className="button self-center bg-royal-blue">дивитись роботи</a>
 
             <p className="max-w-screen-md self-center text-center p-base text-pretty">Для роботи на курсі потрібен ПК з встановленими програмами After Effects та Illustrator (або інші альтернативні програми для створення графіки, в яких вам зручно працювати). Ви будете самостійно створювати ілюстрації та анімацію, тож треба мати відповідні навички. Якщо ви не впевнені, чи достатньо ваших скілів для участі в курсі – напишіть мені!</p>
           </div>
