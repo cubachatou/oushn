@@ -1,27 +1,39 @@
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import InstagramIcon from "@images/socials/instagram.svg";
+import YoutubeIcon from "@images/socials/youtube.svg";
 import Image, { StaticImageData } from "next/image";
 
-const socials: { icon: StaticImport, link: string, alt: string }[] = [
+const socials = [
   {
-    icon: require("@images/socials/instagram.svg"),
-    link: 'https://www.instagram.com/yelizatarasova/',
-    alt: "Instagram автора"
+    link: "https://www.instagram.com/yelizatarasova/",
+    Icon: InstagramIcon,
   },
   {
-    icon: require("@images/socials/instagram.svg"),
-    link: 'https://www.instagram.com/2.5__d/ ',
-    alt: "Instagram курсу"
+    link: "https://www.instagram.com/2.5__d/ ",
+    Icon: InstagramIcon,
   },
   {
-    icon: require("@images/socials/youtube.svg"),
-    link: 'https://www.youtube.com/@2.5__d',
-    alt: "Yotube канал курсу"
+    link: "https://www.youtube.com/@2.5__d",
+    Icon: YoutubeIcon,
   },
 ];
 
-export default function CourseAuthorSection({ name, title, image, bgColor }: { name: string, title: string, image: StaticImageData, bgColor: string }) {
+export default function CourseAuthorSection({
+  name,
+  title,
+  image,
+  bgColor,
+  socialsBgColor,
+}: {
+  name: string;
+  title: string;
+  image: StaticImageData;
+  bgColor: string;
+  socialsBgColor: string;
+}) {
   return (
-    <section className={`py-16 text-white ${bgColor ? `${bgColor}` : 'bg-inherit'}`}>
+    <section
+      className={`py-16 text-white ${bgColor ? `${bgColor}` : "bg-inherit"}`}
+    >
       <div className="container">
         <div className="max-w-screen-md mx-auto grid sm:grid-cols-2 sm:gap-16 gap-8">
           <Image src={image} alt="Liza Tarasova" className="object-cover" />
@@ -29,15 +41,19 @@ export default function CourseAuthorSection({ name, title, image, bgColor }: { n
           <div className="flex flex-col max-md:items-center gap-4">
             <div className="mb-auto flex flex-col max-md:items-center gap-4 max-md:text-center">
               <span className="lg:h2 md:h3 h2">Ліза Тарасова</span>
-              <p className="p-medium">Кураторка курсу та
-                авторка програми</p>
+              <p className="p-medium">Кураторка курсу та авторка програми</p>
             </div>
 
             <ul className="w-fit flex sm:grid grid-cols-2 gap-4">
-              {socials.map((social) => (
-                <li key={social.alt}>
-                  <a href={social.link} target="_blank" rel="noreferrer nofollow" className="inline-flex items-center justify-center size-12 rounded-full bg-royal-blue">
-                    <Image src={social.icon} alt={social.alt} />
+              {socials.map(({ link, Icon }) => (
+                <li key={link}>
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noreferrer nofollow"
+                    className={`inline-flex items-center justify-center size-12 rounded-full ${socialsBgColor ? `${socialsBgColor}` : "bg-dark-sienna"}`}
+                  >
+                    <Icon className="size-6 text-white" />
                   </a>
                 </li>
               ))}
