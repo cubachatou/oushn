@@ -3,6 +3,7 @@
 import { urlFor } from "@/sanity/lib/image";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import Image from "next/image";
+import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 type Feedback = {
@@ -19,41 +20,52 @@ export default function FeedbacksComponent({
   feedbacks,
 }: FeedbacksComponentProps) {
   return (
-    <section className="xl:pb-32 md:pb-24 pb-16">
+    <section className="overflow-hidden xl:pb-32 md:pb-24 pb-16">
       <div className="flex flex-col xl:gap-16 gap-8">
         <div className="container">
           <h3 className="xl:h2 h3 text-royal-blue">Відгуки студентів</h3>
         </div>
 
         <Swiper
-          spaceBetween={108}
+          modules={[Navigation]}
+          navigation
+          breakpoints={{
+            1024: {
+              spaceBetween: 64,
+            },
+          }}
+          spaceBetween={32}
           slidesPerView={"auto"}
+          centeredSlidesBounds={true}
           centeredSlides={true}
-          onSwiper={(swiper) =>
-            swiper.slides.forEach((slide) => {
-              if (slide.innerText.length > 200) {
-                const excessLength = slide.innerText.length - 200;
-                const additionalWidth = Math.floor(excessLength / 5);
-                slide.style.flexBasis = 40 + additionalWidth + "ch";
-              }
-            })
-          }
-          className="max-w-full"
+          speed={800}
+          className="feedbacks-swiper container overflow-visible sm:pb-10 pb-8"
         >
           {feedbacks.map((feedback) => (
-            <SwiperSlide key={feedback.name} className="basis-[50ch] h-80">
-              <figure className="h-full flex items-start gap-6 py-8 px-6 bg-gray">
-                <Image
-                  src={urlFor(feedback.img).url()}
-                  alt={feedback.name}
-                  width={96}
-                  height={96}
-                  className="basis-24 shrink-0 rounded-full"
-                />
+            <SwiperSlide
+              key={feedback.name}
+              className="xl:basis-1/2 lg:basis-2/3 md:basis-4/5 sm:basis-[90%] basis-full"
+            >
+              <figure className="h-full flex md:flex-row flex-col items-start md:gap-6 gap-3 md:py-8 py-4 md:px-6 px-4 bg-gray">
+                <div className="shrink-0 flex items-center gap-4">
+                  <Image
+                    src={urlFor(feedback.img).url()}
+                    alt={feedback.name}
+                    width={96}
+                    height={96}
+                    className="md:basis-24 md:size-24 basis-12 size-12 rounded-full"
+                  />
+
+                  <span className="md:hidden h6 text-white">
+                    {feedback.name}
+                  </span>
+                </div>
 
                 <div className="h-full flex flex-col justify-between gap-4">
-                  <p className="lg:p-base">{feedback.text}</p>
-                  <span className="lg:h5 h6 text-white">{feedback.name}</span>
+                  <p className="lg:p-base max-md:text-base">{feedback.text}</p>
+                  <span className="max-md:hidden h-full lg:h5 h6 text-white">
+                    {feedback.name}
+                  </span>
                 </div>
               </figure>
             </SwiperSlide>
@@ -62,7 +74,7 @@ export default function FeedbacksComponent({
 
         <a
           href="https://www.instagram.com/2.5__d/"
-          rel="noreferrer nofollow"
+          rel="noopener noreferrer nofollow"
           target="_blank"
           className="button self-center bg-royal-blue max-xl:mt-10"
         >
