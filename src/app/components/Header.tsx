@@ -1,18 +1,21 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import Image from "next/image";
-import { useState } from "react";
-//
+import { useGSAP } from "@gsap/react";
 import burger from "@images/icons/burger.svg?url";
 import close from "@images/icons/close.svg?url";
 import logoBlue from "@images/logos/logo-blue.svg?url";
 import logoPink from "@images/logos/logo-pink.svg?url";
 import logoRed from "@images/logos/logo-red.svg?url";
-import logoWhiteRed from "@images/logos/logo-white-red.svg?url";
 import logoWhiteBlue from "@images/logos/logo-white-blue.svg?url";
 import logoWhitePink from "@images/logos/logo-white-pink.svg?url";
+import logoWhiteRed from "@images/logos/logo-white-red.svg?url";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useRef, useState } from "react";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Header() {
   const pathname = usePathname();
@@ -48,6 +51,46 @@ export default function Header() {
     setZIndex(0);
   };
 
+  const stickySection = useRef(null);
+  const stickyLogo = useRef(null);
+  useGSAP(() => {
+    if (stickySection.current) {
+      ScrollTrigger.create({
+        trigger: stickySection.current,
+        start: "top top",
+        end: "bottom top",
+        onEnter: () => {
+          gsap.fromTo(
+            stickySection.current,
+            {
+              backgroundColor: "transparent",
+            },
+            {
+              backgroundColor: "white",
+              paddingBottom: "0.5rem",
+              paddingTop: "0.5rem",
+              boxShadow: "0px 0px 8px -4px black",
+            },
+          );
+          gsap.to(stickyLogo.current, {
+            width: 160 / 16 + "rem",
+          });
+        },
+        onLeaveBack: () => {
+          gsap.to(stickySection.current, {
+            backgroundColor: "transparent",
+            paddingBottom: "2rem",
+            paddingTop: "2rem",
+            boxShadow: "none",
+          }),
+            gsap.to(stickyLogo.current, {
+              width: 210 / 16 + "rem",
+            });
+        },
+      });
+    }
+  });
+
   return (
     <header
       className="absolute inset-0 z-10 pointer-events-none"
@@ -55,11 +98,16 @@ export default function Header() {
     >
       <div className="h-[77.5vh]" hidden={isWorksPath}></div>
 
-      <div className="sticky top-0 py-8">
+      <div ref={stickySection} className="sticky top-0 py-8">
         <div className="container max-w-none md:px-8">
           <div className="flex items-center justify-between gap-8">
             <a href="#" className="pointer-events-auto">
-              <Image src={logo} alt="logo" className="md:w-52 w-40" />
+              <Image
+                ref={stickyLogo}
+                src={logo}
+                alt="logo"
+                className="md:w-52 w-40"
+              />
             </a>
 
             <button

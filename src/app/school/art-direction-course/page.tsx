@@ -6,11 +6,9 @@ import VideoIntro from "@/app/components/VideoIntro";
 import WhiteWrapperLayout from "@/app/layouts/white-wrapper";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { client } from "@/sanity/lib/client";
-
 import gif1 from "@images/art-direction-course/site gif 01.gif";
 import gif2 from "@images/art-direction-course/site gif 02.gif";
 import liza from "@images/team/liza.jpg";
-
 import video from "@videos/artdirection_for site_v2.mp4";
 import Image from "next/image";
 

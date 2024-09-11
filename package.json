@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.1",
     "@hookform/resolvers": "^3.9.0",
     "@mux/mux-node": "^8.8.0",
     "@radix-ui/react-dialog": "^1.1.1",
@@ -24,6 +25,7 @@
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.2.1",
     "framer-motion": "^11.5.4",
+    "gsap": "^3.12.5",
     "lucide-react": "^0.439.0",
     "next": "^14.2.8",
     "next-sanity": "^9.4.7",
