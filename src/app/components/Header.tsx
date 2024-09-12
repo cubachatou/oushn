@@ -161,7 +161,7 @@ export default function Header() {
               </li>
               <li>
                 <span
-                  className={`cursor-default ${isSchoolPath ? "text-[#FFE227]" : ""}`}
+                  className={`cursor-default ${isSchoolPath ? "text-light-beige" : ""}`}
                 >
                   School:
                 </span>
