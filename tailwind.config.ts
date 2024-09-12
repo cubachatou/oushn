@@ -88,6 +88,9 @@ const config: Config = {
           "5": "hsl(var(--chart-5))",
         },
       },
+      backgroundImage: {
+        quotes: "url('../../images/icons/quotes.svg')",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography"), require("tailwindcss-animate")],

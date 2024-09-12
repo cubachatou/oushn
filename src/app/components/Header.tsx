@@ -99,7 +99,7 @@ export default function Header() {
       className="absolute inset-0 z-10 pointer-events-none"
       hidden={isHidden}
     >
-      <div className="h-[77.5vh]" hidden={isWorksPath}></div>
+      <div className="h-[77.5vh]"></div>
 
       <div ref={stickySection} className="sticky top-0 py-8">
         <div className="container max-w-none md:px-8">

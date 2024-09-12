@@ -62,7 +62,7 @@ export default function Footer() {
                     rel="noopener noreferrer nofollow"
                     className="p-base"
                   >
-                    <Icon />
+                    <Icon className="size-6" />
                   </a>
                 </li>
               ))}
