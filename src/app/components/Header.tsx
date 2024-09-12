@@ -78,11 +78,14 @@ export default function Header() {
         },
         onLeaveBack: () => {
           gsap.to(stickySection.current, {
-            backgroundColor: "transparent",
             paddingBottom: "2rem",
             paddingTop: "2rem",
             boxShadow: "none",
           }),
+            gsap.to(stickySection.current, {
+              backgroundColor: "transparent",
+              duration: 0,
+            }),
             gsap.to(stickyLogo.current, {
               width: 210 / 16 + "rem",
             });

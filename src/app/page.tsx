@@ -135,7 +135,7 @@ export default async function Home() {
         </section>
 
         <section className="md:py-32 sm:py-24 py-16">
-          <div className="container max-w-none">
+          <div className="container">
             <div className="flex flex-col items-center md:gap-24 gap-16">
               <h2 className="h2">Our clients</h2>
 
