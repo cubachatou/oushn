@@ -64,10 +64,10 @@ const clientLogos: { src: StaticImport; alt: string }[] = [
 //
 async function getWorks() {
   const query = `
-  *[_type == "work"] {
+  *[_type == "work"] | order(_createdAt desc) [0...6] {
     name,
     "currentSlug": slug.current,
-    "src": image.asset._ref
+    "image": image.asset._ref,
   }`;
 
   const works = await client.fetch(query);
@@ -97,7 +97,7 @@ export default async function Home() {
                   (work: {
                     name: string;
                     currentSlug: string;
-                    src: SanityImageSource;
+                    image: SanityImageSource;
                   }) => (
                     <figure
                       key={work.name}
@@ -108,7 +108,7 @@ export default async function Home() {
                         className="overflow-hidden relative w-full aspect-[16/12] group"
                       >
                         <Image
-                          src={urlFor(work.src).url()}
+                          src={urlFor(work.image).url()}
                           alt=""
                           width={480}
                           height={360}

@@ -1,39 +1,46 @@
+import BlockRenderer from "@/app/components/BlockRenderer";
 import IntroTextSection from "@/app/components/sections/IntroText";
 import VideoIntro from "@/app/components/VideoIntro";
 import WhiteWrapperLayout from "@/app/layouts/white-wrapper";
 import { client } from "@/sanity/lib/client";
-import { urlFor } from "@/sanity/lib/image";
-import introVideo from "@videos/artdirection_for site_v2.mp4";
-import Video from "next-video";
-import Image from "next/image";
-import gif1 from "@images/art-direction-course/site gif 01.gif";
-import gif2 from "@images/art-direction-course/site gif 02.gif";
-import gif3 from "@images/character-course/character02_render 2.gif";
-import gif4 from "@images/character-course/character02_render 3.gif";
-
-interface WorkProps {
-  params: {
-    id: string;
-  };
-}
+import { WorkContent } from "../../../../shared/models";
 
 async function getWork(id: string) {
   const query = `
     *[_type == "work" && slug.current == $id][0] {
       name,
-      "src": image.asset._ref
+      description,
+      video {
+        asset-> {
+          playbackId,
+          assetId,
+          filename,
+        }
+      },
+      content[]
+      {
+        ...,
+        video {
+          ...,
+            asset-> {
+              playbackId,
+              assetId,
+              filename,
+            }
+        },
+      }
     }
   `;
   const work = await client.fetch(query, { id });
   return work;
 }
 
-export default async function WorkPage({ params }: WorkProps) {
-  const work = await getWork(params.id);
+export default async function WorkPage({ params }: { params: { id: string } }) {
+  const work: WorkContent = await getWork(params.id);
 
   return (
     <>
-      <VideoIntro video={introVideo} />
+      <VideoIntro playbackId={work.video.asset.playbackId} />
 
       <WhiteWrapperLayout>
         <IntroTextSection
@@ -41,21 +48,7 @@ export default async function WorkPage({ params }: WorkProps) {
           description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam asperiores ut reiciendis voluptates. Quisquam provident vero perferendis quae libero quidem!"
         />
 
-        <section id="triple-media-grid" className="py-16">
-          <div className="container">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
-              <div className="aspect-square overflow-hidden relative">
-                <Image src={gif4} alt="" layout="fill" objectFit="cover" />
-              </div>
-              <div className="aspect-square overflow-hidden relative">
-                <Image src={gif2} alt="" layout="fill" objectFit="cover" />
-              </div>
-              <div className="aspect-square overflow-hidden relative">
-                <Image src={gif3} alt="" layout="fill" objectFit="cover" />
-              </div>
-            </div>
-          </div>
-        </section>
+        <BlockRenderer content={work.content} />
 
         <section id="prose" className="py-16">
           <div className="container">
@@ -91,71 +84,6 @@ export default async function WorkPage({ params }: WorkProps) {
                 </p>
                 <figcaption>Procreate</figcaption>
               </blockquote>
-            </div>
-          </div>
-        </section>
-
-        <section id="video" className="py-16">
-          <div className="container">
-            <Video src={introVideo} />
-          </div>
-        </section>
-
-        <section id="single-media" className="py-16">
-          <div className="container relative">
-            <Image
-              src={"https://dummyimage.com/1504x846/04ab55/ffffff"}
-              alt=""
-              width={1504}
-              height={846}
-              layout="responsive"
-              className="max-w-full aspect-16x9"
-            />
-          </div>
-        </section>
-
-        <section id="double-media-grid" className="py-16">
-          <div className="container">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-16">
-              <div className="aspect-square overflow-hidden relative">
-                <Image
-                  src="https://dummyimage.com/640x360/04ab55/ffffff"
-                  alt=""
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
-              <div className="aspect-square overflow-hidden relative">
-                <Image
-                  src="https://dummyimage.com/640x360/04ab55/ffffff"
-                  alt=""
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="shifted-double-media-grid" className="py-16">
-          <div className="container">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-16">
-              <div className="aspect-square overflow-hidden relative">
-                <Image
-                  src="https://dummyimage.com/640x360/04ab55/ffffff"
-                  alt=""
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
-              <div className="aspect-square overflow-hidden relative mt-24">
-                <Image
-                  src="https://dummyimage.com/640x360/04ab55/ffffff"
-                  alt=""
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
             </div>
           </div>
         </section>

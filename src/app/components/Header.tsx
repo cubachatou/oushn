@@ -1,8 +1,6 @@
 "use client";
 
 import { useGSAP } from "@gsap/react";
-import burger from "@images/icons/burger.svg?url";
-import close from "@images/icons/close.svg?url";
 import logoBlue from "@images/logos/logo-blue.svg?url";
 import logoPink from "@images/logos/logo-pink.svg?url";
 import logoRed from "@images/logos/logo-red.svg?url";
@@ -11,6 +9,7 @@ import logoWhitePink from "@images/logos/logo-white-pink.svg?url";
 import logoWhiteRed from "@images/logos/logo-white-red.svg?url";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -104,26 +103,18 @@ export default function Header() {
       <div ref={stickySection} className="sticky top-0 py-8">
         <div className="container max-w-none md:px-8">
           <div className="flex items-center justify-between gap-8">
-            <a href="#" className="pointer-events-auto">
-              <Image
-                ref={stickyLogo}
-                src={logo}
-                alt="logo"
-                className="md:w-52 w-40"
-              />
-            </a>
+            <Image
+              ref={stickyLogo}
+              src={logo}
+              alt="logo"
+              className="md:w-52 w-40"
+            />
 
             <button
               onClick={menuOpen}
               className="pointer-events-auto flex items-center justify-center size-12 rounded-full shadow-[0px_0px_8px_-4px] shadow-black bg-white"
             >
-              <Image
-                src={burger}
-                alt="menu"
-                width={24}
-                height={24}
-                className="size-6"
-              />
+              <Menu size={32} />
             </button>
           </div>
         </div>
@@ -143,13 +134,7 @@ export default function Header() {
               onClick={menuClose}
               className="pointer-events-auto flex items-center justify-center size-12 rounded-full shadow-[0px_0px_8px_-4px] shadow-black bg-white"
             >
-              <Image
-                src={close}
-                alt="menu"
-                width={32}
-                height={32}
-                className="size-8"
-              />
+              <X size={32} />
             </button>
           </div>
 
