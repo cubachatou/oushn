@@ -34,17 +34,6 @@ export const reachTextType = defineType({
               { title: "Code", value: "code" },
               { title: "Strike", value: "strike-through" },
               { title: "Highlight", value: "highlight", icon: HighlightIcon },
-              {
-                title: "Blockquote",
-                value: "blockquote",
-                icon: () => <div>“”</div>,
-                component: ({ children, mark }) => (
-                  <blockquote>
-                    <p>{children}</p>
-                    {mark.source && <figcaption>— {mark.source}</figcaption>}
-                  </blockquote>
-                ),
-              },
             ],
             annotations: [
               {
@@ -62,29 +51,6 @@ export const reachTextType = defineType({
             ],
           },
         },
-        {
-          type: "object", // Custom object block for blockquote
-          name: "blockquoteWithSource",
-          title: "Blockquote with Source",
-          fields: [
-            {
-              name: "quote",
-              title: "Quote",
-              type: "text",
-            },
-            {
-              name: "source",
-              title: "Source",
-              type: "string",
-            },
-          ],
-          preview: {
-            select: {
-              title: "quote",
-              subtitle: "source",
-            },
-          },
-        },
       ],
     }),
     // defineField({
@@ -93,4 +59,11 @@ export const reachTextType = defineType({
     //   icon: ImageIcon,
     // }),
   ],
+  preview: {
+    prepare() {
+      return {
+        title: "Reach Text",
+      };
+    },
+  },
 });

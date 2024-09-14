@@ -14,4 +14,12 @@ export const videoType = defineType({
       },
     }),
   ],
+  preview: {
+    prepare() {
+      return {
+        title: "Video",
+        subtitle: "Full-width video",
+      };
+    },
+  },
 });

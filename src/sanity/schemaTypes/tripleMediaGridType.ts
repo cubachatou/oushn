@@ -11,6 +11,7 @@ export const tripleMediaGridType = defineType({
       title: "Media Array",
       of: [
         {
+          name: "image",
           type: "image",
           options: {
             hotspot: true,
@@ -34,4 +35,11 @@ export const tripleMediaGridType = defineType({
         Rule.required().min(3).max(3).error("Should contain 3 images."),
     }),
   ],
+  preview: {
+    prepare() {
+      return {
+        title: "Triple Media Grid",
+      };
+    },
+  },
 });

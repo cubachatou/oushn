@@ -1,5 +1,6 @@
 import {
   AlignHorizontalJustifyCenterIcon,
+  ContactIcon,
   ImageIcon,
   ImagesIcon,
   LetterTextIcon,
@@ -58,6 +59,14 @@ export const workType = defineType({
           icon: LetterTextIcon,
         },
         {
+          type: "blockquote",
+          icon: QuoteIcon,
+        },
+        {
+          type: "credits",
+          icon: ContactIcon,
+        },
+        {
           type: "video",
           icon: VideoIcon,
         },
@@ -76,10 +85,6 @@ export const workType = defineType({
         {
           type: "shifted-double-media-grid",
           icon: AlignHorizontalJustifyCenterIcon,
-        },
-        {
-          type: "blockquote",
-          icon: QuoteIcon,
         },
       ],
       options: {

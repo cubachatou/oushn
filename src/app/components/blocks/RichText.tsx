@@ -1,12 +1,15 @@
 "use client";
-import { ReactNode } from "react";
 import PortableText from "react-portable-text";
+import { ContentItem } from "../../../../shared/models";
+import { PortableTextTextBlock } from "sanity";
 
-export default function RichTextBlock({ block }: { block: Array<any> }) {
+export default function RichTextBlock({ block }: { block: ContentItem }) {
+  const blockObject: PortableTextTextBlock[] = Object(block.text);
+
   return (
     <div className="container prose prose-2xl">
       <PortableText
-        content={block}
+        content={blockObject}
         serializers={
           {
             // h2: ({ children }: { children: ReactNode }) => <h2>{children}</h2>,

@@ -9,6 +9,7 @@ import { tripleMediaGridType } from "./tripleMediaGridType";
 import { videoType } from "./videoType";
 import { blockquoteType } from "./blockquoteType";
 import { reachTextType } from "./reachTextType";
+import { creditsType } from "./creditsType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -22,5 +23,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     textRedactor,
     blockquoteType,
     reachTextType,
+    creditsType,
   ],
 };

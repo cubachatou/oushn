@@ -1,5 +1,6 @@
 import { ContentItem } from "../../../shared/models";
 import BlockquoteBlock from "./blocks/Blockquote";
+import CreditsBlock from "./blocks/Credits";
 import DoubleMediaGridBlock from "./blocks/DoubleMediaGrid";
 import RichTextBlock from "./blocks/RichText";
 import ShiftedDoubleMediaGridBlock from "./blocks/ShiftedDoubleMediaGrid";
@@ -27,7 +28,9 @@ export default function BlockRenderer({ content }: { content: ContentItem[] }) {
           case "blockquote":
             return <BlockquoteBlock key={block._key} block={block} />;
           case "reach-text":
-            return <RichTextBlock key={block._key} block={block.text} />;
+            return <RichTextBlock key={block._key} block={block} />;
+          case "credits":
+            return <CreditsBlock key={block._key} block={block} />;
           default:
             return null;
         }

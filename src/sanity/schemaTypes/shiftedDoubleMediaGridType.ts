@@ -34,4 +34,11 @@ export const shiftedDoubleMediaGridType = defineType({
         Rule.required().min(2).max(2).error("Should contain 2 images."),
     }),
   ],
+  preview: {
+    prepare() {
+      return {
+        title: "Shifted Double Media Grid",
+      };
+    },
+  },
 });

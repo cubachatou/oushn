@@ -26,4 +26,11 @@ export const singleMediaType = defineType({
       validation: (Rule) => Rule.required().error("Image is required."),
     }),
   ],
+  preview: {
+    prepare() {
+      return {
+        title: "Single Media",
+      };
+    },
+  },
 });
