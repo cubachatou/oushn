@@ -1,3 +1,11 @@
+import {
+  AlignHorizontalJustifyCenterIcon,
+  ImageIcon,
+  ImagesIcon,
+  LetterTextIcon,
+  QuoteIcon,
+  VideoIcon,
+} from "lucide-react";
 import { defineField, defineType } from "sanity";
 
 export const workType = defineType({
@@ -46,21 +54,33 @@ export const workType = defineType({
       title: "Content Blocks",
       of: [
         {
+          type: "reach-text",
+          icon: LetterTextIcon,
+        },
+        {
           type: "video",
+          icon: VideoIcon,
         },
         {
           type: "single-media",
+          icon: ImageIcon,
         },
         {
           type: "double-media-grid",
+          icon: ImagesIcon,
         },
         {
           type: "triple-media-grid",
+          icon: ImagesIcon,
         },
         {
           type: "shifted-double-media-grid",
+          icon: AlignHorizontalJustifyCenterIcon,
         },
-        { type: "block" },
+        {
+          type: "blockquote",
+          icon: QuoteIcon,
+        },
       ],
       options: {
         insertMenu: {
@@ -71,6 +91,11 @@ export const workType = defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
+    // defineField({
+    //   name: "someName",
+    //   title: "Some title",
+    //   type: "blockContent",
+    // }),
   ],
   preview: {
     select: {

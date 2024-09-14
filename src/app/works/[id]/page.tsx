@@ -50,7 +50,7 @@ export default async function WorkPage({ params }: { params: { id: string } }) {
 
         <BlockRenderer content={work.content} />
 
-        <section id="prose" className="py-16">
+        {/* <section id="prose" className="py-16">
           <div className="container">
             <div className="prose prose-2xl mx-auto">
               <h2>H2 title</h2>
@@ -86,7 +86,7 @@ export default async function WorkPage({ params }: { params: { id: string } }) {
               </blockquote>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section id="credits" className="py-16">
           <div className="container max-w-screen-md">

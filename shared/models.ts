@@ -24,6 +24,8 @@ export interface ContentItem extends PortableTextTextBlock {
   video: {
     asset: muxAsset;
   };
+  text: string;
+  figcaption: string;
 }
 
 export interface WorkContent {

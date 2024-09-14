@@ -3,15 +3,15 @@ import { textRedactor } from "./textRedactor";
 import { shiftedDoubleMediaGridType } from "./shiftedDoubleMediaGridType";
 import { doubleMediaGridType } from "./doubleMediaGridType";
 import { singleMediaType } from "./singleMedia";
-import { blockContentType } from "./blockContentType";
 import { workType } from "./workType";
 import { feedbackType } from "./feedbackType";
 import { tripleMediaGridType } from "./tripleMediaGridType";
 import { videoType } from "./videoType";
+import { blockquoteType } from "./blockquoteType";
+import { reachTextType } from "./reachTextType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
-    blockContentType,
     workType,
     feedbackType,
     tripleMediaGridType,
@@ -20,5 +20,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     doubleMediaGridType,
     shiftedDoubleMediaGridType,
     textRedactor,
+    blockquoteType,
+    reachTextType,
   ],
 };
