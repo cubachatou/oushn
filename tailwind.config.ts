@@ -20,6 +20,7 @@ const config: Config = {
       white: "#fff",
       gray: "#D9D9D9",
       "dark-terra-cotta": "#cb4b3d",
+      "terra-cotta": "#CF6A5C",
       "royal-blue": "#404ed9",
       "middle-pink": "#e37caf",
       "dark-sienna": "#3a1b0f",

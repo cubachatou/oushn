@@ -127,9 +127,9 @@ export default async function Home() {
                 )}
               </div>
 
-              <a href="/" className="button bg-dark-terra-cotta">
+              <Link href="/works" className="button bg-dark-terra-cotta">
                 all projects
-              </a>
+              </Link>
             </div>
           </div>
         </section>

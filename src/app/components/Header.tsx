@@ -148,7 +148,7 @@ export default function Header() {
                 </Link>
               </li>
               <li
-                className={`hover:text-dark-terra-cotta transition-colors ${isActive("/works") ? "text-dark-terra-cotta" : ""}`}
+                className={`hover:text-terra-cotta transition-colors ${isActive("/works") ? "text-terra-cotta" : ""}`}
               >
                 <Link onClick={menuClose} href="/works">
                   Works
