@@ -1,13 +1,13 @@
 "use client";
 import PortableText from "react-portable-text";
-import { ContentItem } from "../../../../shared/models";
 import { PortableTextTextBlock } from "sanity";
+import { ContentItem } from "../../../../shared/models";
 
 export default function RichTextBlock({ block }: { block: ContentItem }) {
   const blockObject: PortableTextTextBlock[] = Object(block.text);
 
   return (
-    <div className="container prose prose-2xl">
+    <div className="container prose prose-2xl xl:mb-16 lg:mb-10 mb-8">
       <PortableText
         content={blockObject}
         serializers={

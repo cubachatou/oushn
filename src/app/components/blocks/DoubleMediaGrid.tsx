@@ -3,7 +3,7 @@ import {
   ContentItem,
   ExtendedSanityImageObject,
 } from "../../../../shared/models";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export default function DoubleMediaGridBlock({
   block,
@@ -11,9 +11,9 @@ export default function DoubleMediaGridBlock({
   block: ContentItem;
 }) {
   return (
-    <section className="py-16">
+    <div className="xl:mb-16 lg:mb-10 mb-8">
       <div className="container">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-16">
+        <div className="grid grid-cols-2 xl:gap-16 md:gap-8 gap-4">
           {block.mediaArray.map((image: ExtendedSanityImageObject) => {
             return (
               <div
@@ -32,6 +32,6 @@ export default function DoubleMediaGridBlock({
           })}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

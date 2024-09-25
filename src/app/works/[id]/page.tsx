@@ -3,6 +3,7 @@ import IntroTextSection from "@/app/components/sections/IntroText";
 import VideoIntro from "@/app/components/VideoIntro";
 import WhiteWrapperLayout from "@/app/layouts/white-wrapper";
 import { client } from "@/sanity/lib/client";
+import type { Metadata } from "next";
 import { WorkContent } from "../../../../shared/models";
 
 async function getWork(id: string) {
@@ -35,6 +36,18 @@ async function getWork(id: string) {
   return work;
 }
 
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> => {
+  const work: WorkContent = await getWork(params.id);
+  return {
+    title: work.name,
+    description: work.description,
+  };
+};
+
 export default async function WorkPage({ params }: { params: { id: string } }) {
   const work: WorkContent = await getWork(params.id);
 
@@ -42,13 +55,15 @@ export default async function WorkPage({ params }: { params: { id: string } }) {
     <>
       <VideoIntro playbackId={work.video.asset.playbackId} />
 
-      <WhiteWrapperLayout>
+      <WhiteWrapperLayout className="pb-8">
         <IntroTextSection
           title={work.name}
           description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam asperiores ut reiciendis voluptates. Quisquam provident vero perferendis quae libero quidem!"
         />
 
-        <BlockRenderer content={work.content} />
+        <div>
+          <BlockRenderer content={work.content} />
+        </div>
       </WhiteWrapperLayout>
     </>
   );

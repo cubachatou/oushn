@@ -10,7 +10,14 @@ import gif1 from "@images/art-direction-course/site gif 01.gif";
 import gif2 from "@images/art-direction-course/site gif 02.gif";
 import liza from "@images/team/liza.jpg";
 import video from "@videos/artdirection_for site_v2.mp4";
+import { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Art Direction Course",
+  description:
+    "Це курс про режисуру моушн дизайн відео. Про те, як робити комерційні експлейнери та власні творчі короткометражні анімаційні роботи. Він побудований навколо створення одного проєкту, від пошуку ідеї та написання сценарію до дизайну сцен та створення готової фінальної анімації.",
+};
 
 async function getFeedbacks() {
   const query = `
@@ -62,6 +69,7 @@ export default async function ArtDirectionCoursePage() {
                 src={gif1}
                 alt="Відеоуроки"
                 className="w-full h-auto bg-gray aspect-[16/12]"
+                unoptimized
               />
 
               <ul className="list-disc list-inside p-medium [&_*:not(:last-child)]:pb-4">
@@ -87,6 +95,7 @@ export default async function ArtDirectionCoursePage() {
                 src={gif2}
                 alt="Вебінари"
                 className="w-full h-auto bg-gray aspect-[16/12]"
+                unoptimized
               />
 
               <ul className="list-disc list-inside p-medium [&_*:not(:last-child)]:pb-4">

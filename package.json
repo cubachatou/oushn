@@ -34,6 +34,7 @@
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",
     "react-portable-text": "^0.6.0",
+    "recharts": "^2.13.0-alpha.5",
     "sanity": "^3.57.1",
     "sanity-plugin-mux-input": "^2.3.6",
     "sharp": "^0.33.5",

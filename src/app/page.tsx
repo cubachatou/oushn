@@ -11,53 +11,66 @@ import { urlFor } from "@/sanity/lib/image";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 //
+import client_01 from "@images/clients/client_01.svg?url";
+import client_02 from "@images/clients/client_02.svg?url";
+import client_03 from "@images/clients/client_03.svg?url";
+import client_04 from "@images/clients/client_04.svg?url";
+import client_05 from "@images/clients/client_05.svg?url";
+import client_06 from "@images/clients/client_06.svg?url";
+import client_07 from "@images/clients/client_07.svg?url";
+import client_08 from "@images/clients/client_08.svg?url";
+import client_09 from "@images/clients/client_09.svg?url";
+import client_10 from "@images/clients/client_10.svg?url";
+import client_11 from "@images/clients/client_11.svg?url";
+import client_12 from "@images/clients/client_12.svg?url";
+
 const clientLogos: { src: StaticImport; alt: string }[] = [
   {
-    src: require("@images/clients/client_01.svg?url"),
+    src: client_01,
     alt: "SOVA *jewelry house",
   },
   {
-    src: require("@images/clients/client_02.svg?url"),
+    src: client_02,
     alt: "ПУМБ",
   },
   {
-    src: require("@images/clients/client_03.svg?url"),
+    src: client_03,
     alt: "Planeta Kino",
   },
   {
-    src: require("@images/clients/client_04.svg?url"),
+    src: client_04,
     alt: "LOREAL",
   },
   {
-    src: require("@images/clients/client_05.svg?url"),
+    src: client_05,
     alt: "Fora",
   },
   {
-    src: require("@images/clients/client_06.svg?url"),
+    src: client_06,
     alt: "obmy",
   },
   {
-    src: require("@images/clients/client_07.svg?url"),
+    src: client_07,
     alt: "drama queen",
   },
   {
-    src: require("@images/clients/client_08.svg?url"),
+    src: client_08,
     alt: "LA ROCHE-POSAY",
   },
   {
-    src: require("@images/clients/client_09.svg?url"),
+    src: client_09,
     alt: "Дарниця",
   },
   {
-    src: require("@images/clients/client_10.svg?url"),
+    src: client_10,
     alt: "Ukraїner",
   },
   {
-    src: require("@images/clients/client_11.svg?url"),
+    src: client_11,
     alt: "ARTERIUM",
   },
   {
-    src: require("@images/clients/client_12.svg?url"),
+    src: client_12,
     alt: "banda",
   },
 ];

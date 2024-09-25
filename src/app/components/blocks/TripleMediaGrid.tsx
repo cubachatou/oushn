@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import {
   ContentItem,
   ExtendedSanityImageObject,
@@ -11,9 +11,9 @@ export default function TripleMediaGridBlock({
   block: ContentItem;
 }) {
   return (
-    <div className="py-16">
+    <div className="xl:mb-16 lg:mb-10 mb-8">
       <div className="container">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
+        <div className="grid grid-cols-3 xl:gap-16 md:gap-8 gap-4">
           {block.mediaArray.map((image: ExtendedSanityImageObject) => {
             return (
               <div

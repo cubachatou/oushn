@@ -27,7 +27,7 @@ export interface ContentItem extends PortableTextTextBlock {
   text: string;
   figcaption: string;
   title: string;
-  credits: [{ name: string; title: string; type: string }];
+  credits: [{ role: string; name: string; type: string }];
 }
 
 export interface WorkContent {

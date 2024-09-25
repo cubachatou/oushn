@@ -1,5 +1,5 @@
 import { urlFor } from "@/sanity/lib/image";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import {
   ContentItem,
   ExtendedSanityImageObject,
@@ -11,9 +11,9 @@ export default function ShiftedDoubleMediaGridBlock({
   block: ContentItem;
 }) {
   return (
-    <section className="py-16">
+    <div className="xl:mb-16 lg:mb-10 mb-8">
       <div className="container">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-16">
+        <div className="grid grid-cols-2 xl:gap-16 md:gap-8 gap-4">
           {block.mediaArray.map(
             (image: ExtendedSanityImageObject, index: number) => {
               return (
@@ -34,6 +34,6 @@ export default function ShiftedDoubleMediaGridBlock({
           )}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

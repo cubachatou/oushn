@@ -13,7 +13,7 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Header() {
@@ -32,7 +32,7 @@ export default function Header() {
         : logoWhiteRed;
   const isActive = (path: string) => pathname === path;
   const isSchoolPath = pathname.includes("/school");
-  const isWorksPath = pathname.includes("/works");
+  const isWorksPath = pathname === "/works";
   const isHidden = pathname.includes("/studio");
   //
   const [zIndex, setZIndex] = useState(0);
@@ -54,7 +54,7 @@ export default function Header() {
   const stickyLogo = useRef(null);
   useGSAP(() => {
     if (stickySection.current) {
-      ScrollTrigger.create({
+      const trigger = ScrollTrigger.create({
         trigger: stickySection.current,
         start: "top top",
         end: "bottom top",
@@ -90,8 +90,16 @@ export default function Header() {
             });
         },
       });
+
+      return () => {
+        trigger.kill();
+      };
     }
-  });
+  }, [pathname]);
+
+  useEffect(() => {
+    ScrollTrigger.refresh();
+  }, [pathname]);
 
   return (
     <header

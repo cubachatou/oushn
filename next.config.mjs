@@ -2,7 +2,16 @@ import { withNextVideo } from "next-video/process";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["dummyimage.com", "cdn.sanity.io"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "dummyimage.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
+    ],
   },
   webpack(config) {
     // Grab the existing rule that handles SVG imports

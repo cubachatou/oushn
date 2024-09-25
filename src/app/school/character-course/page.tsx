@@ -8,7 +8,14 @@ import gif1 from "@images/character-course/character02_render 2.gif";
 import gif2 from "@images/character-course/character02_render 3.gif";
 import liza from "@images/team/liza.jpg";
 import video from "@videos/header_character_v2.mp4";
+import { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Accents in Motion characters workshop",
+  description:
+    "Цей воркшоп присвячений темі Акцентної персонажної анімації в моушн дизайні. Поглиблюємо наші знання, покращуємо навички та навчаємось планувати персонажну анімацію з урахуванням ритму та динаміки. Переводимо нашу персонажку на новий рівень - від посередньої монотонності до акцентної виразності.",
+};
 
 export default function CharacterCoursePage() {
   return (
@@ -29,6 +36,7 @@ export default function CharacterCoursePage() {
               src={gif1}
               alt="Програма курсу"
               className="md:mb-24 mb-12 w-full aspect-[16/10] object-cover"
+              unoptimized
             />
 
             <div className="sm:my-16 my-8 flex flex-col ms:gap-8 gap-4">
@@ -68,6 +76,7 @@ export default function CharacterCoursePage() {
               src={gif2}
               alt="Для кого воркшоп?"
               className="md:mt-24 mt-12 sm:mb-16 mb-8 w-full aspect-video object-cover"
+              unoptimized
             />
 
             <div className="sm:mt-20 mt-12 sm:mb-24 mb-16 flex flex-col sm:gap-8 gap-4">

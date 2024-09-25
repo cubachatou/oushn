@@ -1,6 +1,6 @@
 import InstagramIcon from "@images/socials/instagram.svg";
 import YoutubeIcon from "@images/socials/youtube.svg";
-import Image, { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/legacy/image";
 
 const socials = [
   {
