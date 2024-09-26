@@ -14,7 +14,7 @@ async function getWorks() {
 
   const works = await sanityFetch({
     query: query,
-    tags: ["works"],
+    tags: ["work"],
   });
 
   return works;
