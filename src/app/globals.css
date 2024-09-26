@@ -139,7 +139,7 @@
   @apply m-0 relative before:bg-[url('../../images/icons/quotes.svg')] after:bg-[url('../../images/icons/quotes.svg')];
 }
 .prose blockquote p::before,
-.prose blockquote p::before {
+.prose blockquote p::after {
   @apply lg:size-14 size-8 absolute bg-no-repeat bg-center bg-contain;
 }
 .prose blockquote p::before {
