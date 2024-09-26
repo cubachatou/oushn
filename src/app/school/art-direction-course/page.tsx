@@ -31,7 +31,7 @@ async function getFeedbacks() {
 
   const feedbacks: Feedback[] = await sanityFetch({
     query: query,
-    tags: ["feedbacks"],
+    tags: ["feedback"],
   });
 
   return feedbacks;
