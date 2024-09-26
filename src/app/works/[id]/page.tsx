@@ -2,11 +2,11 @@ import BlockRenderer from "@/app/components/BlockRenderer";
 import IntroTextSection from "@/app/components/sections/IntroText";
 import VideoIntro from "@/app/components/VideoIntro";
 import WhiteWrapperLayout from "@/app/layouts/white-wrapper";
-import { client } from "@/sanity/lib/client";
+import { sanityFetch } from "@/sanity/lib/client";
 import type { Metadata } from "next";
 import { WorkContent } from "../../../../shared/models";
 
-async function getWork(id: string) {
+async function getWork() {
   const query = `
     *[_type == "work" && slug.current == $id][0] {
       name,
@@ -32,24 +32,24 @@ async function getWork(id: string) {
       }
     }
   `;
-  const work = await client.fetch(query, { id });
+  // const work = await client.fetch(query, { id });
+  const work: WorkContent = await sanityFetch({
+    query: query,
+    tags: ["work"],
+  });
   return work;
 }
 
-export const generateMetadata = async ({
-  params,
-}: {
-  params: { id: string };
-}): Promise<Metadata> => {
-  const work: WorkContent = await getWork(params.id);
+export const generateMetadata = async () => {
+  const work: WorkContent = await getWork();
   return {
     title: work.name,
     description: work.description,
   };
 };
 
-export default async function WorkPage({ params }: { params: { id: string } }) {
-  const work: WorkContent = await getWork(params.id);
+export default async function WorkPage() {
+  const work: WorkContent = await getWork();
 
   return (
     <>

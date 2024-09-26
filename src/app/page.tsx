@@ -6,11 +6,11 @@ import IntroTextSection from "./components/sections/IntroText";
 import VideoIntro from "./components/VideoIntro";
 import WhiteWrapperLayout from "./layouts/white-wrapper";
 //
-import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 //
+import { sanityFetch } from "@/sanity/lib/client";
 import client_01 from "@images/clients/client_01.svg?url";
 import client_02 from "@images/clients/client_02.svg?url";
 import client_03 from "@images/clients/client_03.svg?url";
@@ -83,7 +83,10 @@ async function getWorks() {
     "image": image.asset._ref,
   }`;
 
-  const works = await client.fetch(query);
+  const works = await sanityFetch({
+    query: query,
+    tags: ["work"],
+  });
 
   return works;
 }

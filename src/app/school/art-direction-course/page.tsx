@@ -5,7 +5,7 @@ import IntroTextSection from "@/app/components/sections/IntroText";
 import VideoIntro from "@/app/components/VideoIntro";
 import WhiteWrapperLayout from "@/app/layouts/white-wrapper";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { client } from "@/sanity/lib/client";
+import { sanityFetch } from "@/sanity/lib/client";
 import gif1 from "@images/art-direction-course/site gif 01.gif";
 import gif2 from "@images/art-direction-course/site gif 02.gif";
 import liza from "@images/team/liza.jpg";
@@ -28,7 +28,10 @@ async function getFeedbacks() {
     "img": avatar.asset._ref
   }`;
 
-  const feedbacks = await client.fetch(query);
+  const feedbacks = await sanityFetch({
+    query: query,
+    tags: ["feedbacks"],
+  });
 
   return feedbacks;
 }
