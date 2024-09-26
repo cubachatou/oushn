@@ -131,24 +131,23 @@
 
 .prose {
   @apply font-GillLight *:text-dark-sienna prose-li:marker:text-dark-sienna prose-figcaption:text-dark-sienna;
-
-  & blockquote {
-    @apply flex flex-col gap-4 p-0 border-none text-2xl font-bold font-Gill;
-    & p {
-      @apply m-0 relative before:bg-[url('../../images/icons/quotes.svg')] after:bg-[url('../../images/icons/quotes.svg')];
-      &::before,
-      &&:after {
-        @apply lg:size-14 size-8 absolute bg-no-repeat bg-center bg-contain;
-      }
-      &::before {
-        @apply -top-4 lg:right-[105%] right-[101%] rotate-180;
-      }
-      &::after {
-        @apply bottom-0 lg:left-[103%] left-[101%];
-      }
-    }
-    & figcaption {
-      @apply m-0 not-italic font-GillLight font-light text-2xl;
-    }
-  }
+}
+.prose blockquote {
+  @apply flex flex-col gap-4 p-0 border-none text-2xl font-bold font-Gill;
+}
+.prose blockquote p {
+  @apply m-0 relative before:bg-[url('../../images/icons/quotes.svg')] after:bg-[url('../../images/icons/quotes.svg')];
+}
+.prose blockquote p::before,
+.prose blockquote p::before {
+  @apply lg:size-14 size-8 absolute bg-no-repeat bg-center bg-contain;
+}
+.prose blockquote p::before {
+  @apply -top-4 lg:right-[105%] right-[101%] rotate-180;
+}
+.prose blockquote p::after {
+  @apply bottom-0 lg:left-[103%] left-[101%];
+}
+.prose blockquote figcaption {
+  @apply m-0 not-italic font-GillLight font-light text-2xl;
 }
