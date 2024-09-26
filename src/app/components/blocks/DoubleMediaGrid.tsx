@@ -13,7 +13,7 @@ export default function DoubleMediaGridBlock({
   return (
     <div className="xl:mb-16 lg:mb-10 mb-8">
       <div className="container">
-        <div className="grid grid-cols-2 xl:gap-16 md:gap-8 gap-4">
+        <div className="grid md:grid-cols-2 xl:gap-16 md:gap-8 gap-4">
           {block.mediaArray.map((image: ExtendedSanityImageObject) => {
             return (
               <div
