@@ -103,7 +103,7 @@ export default function CharacterCoursePage() {
           <div className="container">
             <div className="flex flex-col items-center gap-10 text-center">
               <strong className="inline-block max-w-64 h4 text-pretty">
-                Вартість&nbsp;воркшопу&nbsp;- 3000 грн *
+                Вартість&nbsp;воркшопу&nbsp;- 3500 грн *
               </strong>
 
               <Dialog>

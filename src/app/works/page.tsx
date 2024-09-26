@@ -22,7 +22,7 @@ async function getWorks() {
 }
 //
 export const metadata: Metadata = {
-  title: "Works",
+  title: "Work",
   description: "Selected works",
 };
 

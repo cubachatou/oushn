@@ -159,7 +159,7 @@ export default function Header() {
                 className={`hover:text-terra-cotta transition-colors ${isActive("/works") ? "text-terra-cotta" : ""}`}
               >
                 <Link onClick={menuClose} href="/works">
-                  Works
+                  Work
                 </Link>
               </li>
               <li>
