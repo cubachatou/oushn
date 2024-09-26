@@ -12,6 +12,7 @@ import liza from "@images/team/liza.jpg";
 import video from "@videos/artdirection_for site_v2.mp4";
 import { Metadata } from "next";
 import Image from "next/image";
+import { Feedback } from "../../../../shared/models";
 
 export const metadata: Metadata = {
   title: "Art Direction Course",
@@ -28,7 +29,7 @@ async function getFeedbacks() {
     "img": avatar.asset._ref
   }`;
 
-  const feedbacks = await sanityFetch({
+  const feedbacks: Feedback[] = await sanityFetch({
     query: query,
     tags: ["feedbacks"],
   });
@@ -37,7 +38,7 @@ async function getFeedbacks() {
 }
 
 export default async function ArtDirectionCoursePage() {
-  const feedbacks = await getFeedbacks();
+  const feedbacks: Feedback[] = await getFeedbacks();
 
   return (
     <main>

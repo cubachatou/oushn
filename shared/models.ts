@@ -46,3 +46,9 @@ export interface Work {
   currentSlug: string;
   image: SanityImageSource;
 }
+
+export interface Feedback {
+  name: string;
+  text: string;
+  img: SanityImageSource;
+}

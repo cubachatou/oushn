@@ -1,24 +1,16 @@
 "use client";
 
 import { urlFor } from "@/sanity/lib/image";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import Image from "next/image";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-type Feedback = {
-  name: string;
-  text: string;
-  img: SanityImageSource;
-};
-
-interface FeedbacksComponentProps {
-  feedbacks: Feedback[];
-}
+import { Feedback } from "../../../../shared/models";
 
 export default function FeedbacksComponent({
   feedbacks,
-}: FeedbacksComponentProps) {
+}: {
+  feedbacks: Feedback[];
+}) {
   return (
     <section className="overflow-hidden xl:pb-32 md:pb-24 pb-16">
       <div className="flex flex-col xl:gap-16 gap-8">

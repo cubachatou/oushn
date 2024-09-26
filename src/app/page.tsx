@@ -110,38 +110,32 @@ export default async function Home() {
           <div className="container">
             <div className="flex flex-col items-center lg:gap-32 sm:gap-24 gap-16">
               <div className="w-full grid xl:grid-cols-3 md:grid-cols-2 gap-x-8 gap-y-16">
-                {works.map(
-                  (work: {
-                    name: string;
-                    currentSlug: string;
-                    image: SanityImageSource;
-                  }) => (
-                    <figure
-                      key={work.name}
-                      className="flex flex-col items-center text-center gap-4"
+                {works.map((work) => (
+                  <figure
+                    key={work.name}
+                    className="flex flex-col items-center text-center gap-4"
+                  >
+                    <Link
+                      href={`/works/${work.currentSlug}`}
+                      className="overflow-hidden relative w-full aspect-[16/12] group"
                     >
-                      <Link
-                        href={`/works/${work.currentSlug}`}
-                        className="overflow-hidden relative w-full aspect-[16/12] group"
-                      >
-                        <Image
-                          src={urlFor(work.image).url()}
-                          alt=""
-                          width={480}
-                          height={360}
-                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                        />
+                      <Image
+                        src={urlFor(work.image).url()}
+                        alt={work.name}
+                        width={480}
+                        height={360}
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </Link>
+                    <figcaption>
+                      <Link href={`/works/${work.currentSlug}`}>
+                        <h3 className="lg:h3 md:h4 h3 text-dark-terra-cotta">
+                          {work.name}
+                        </h3>
                       </Link>
-                      <figcaption>
-                        <Link href={`/works/${work.currentSlug}`}>
-                          <h3 className="lg:h3 md:h4 h3 text-dark-terra-cotta">
-                            {work.name}
-                          </h3>
-                        </Link>
-                      </figcaption>
-                    </figure>
-                  ),
-                )}
+                    </figcaption>
+                  </figure>
+                ))}
               </div>
 
               <Link href="/works" className="button bg-dark-terra-cotta">
