@@ -23,6 +23,7 @@ import client_09 from "@images/clients/client_09.svg?url";
 import client_10 from "@images/clients/client_10.svg?url";
 import client_11 from "@images/clients/client_11.svg?url";
 import client_12 from "@images/clients/client_12.svg?url";
+import { Work } from "../../shared/models";
 
 const clientLogos: { src: StaticImport; alt: string }[] = [
   {
@@ -83,7 +84,7 @@ async function getWorks() {
     "image": image.asset._ref,
   }`;
 
-  const works = await sanityFetch({
+  const works: Work[] = await sanityFetch({
     query: query,
     tags: ["work"],
   });
@@ -92,7 +93,7 @@ async function getWorks() {
 }
 
 export default async function Home() {
-  const works = await getWorks();
+  const works: Work[] = await getWorks();
 
   return (
     <>

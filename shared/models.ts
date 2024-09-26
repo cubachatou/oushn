@@ -1,6 +1,7 @@
 import {
   SanityAsset,
   SanityImageObject,
+  SanityImageSource,
 } from "@sanity/image-url/lib/types/types";
 import { PortableTextTextBlock } from "sanity";
 
@@ -38,4 +39,10 @@ export interface WorkContent {
   content: ContentItem[];
   name: string;
   description: string;
+}
+
+export interface Work {
+  name: string;
+  currentSlug: string;
+  image: SanityImageSource;
 }
