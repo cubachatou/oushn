@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import WhiteWrapperLayout from "../layouts/white-wrapper";
+import { Work } from "../../../shared/models";
 async function getWorks() {
   const query = `
   *[_type == "work"] | order(_createdAt desc) {
@@ -12,7 +13,7 @@ async function getWorks() {
     "src": image.asset._ref
   }`;
 
-  const works = await sanityFetch({
+  const works: Work[] = await sanityFetch({
     query: query,
     tags: ["work"],
   });
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 export default async function WorksPage() {
-  const works = await getWorks();
+  const works: Work[] = await getWorks();
 
   return (
     <WhiteWrapperLayout>
