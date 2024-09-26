@@ -154,8 +154,12 @@ export default async function Home() {
 
               <div className="w-full grid 2xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-x-8 gap-y-16">
                 {clientLogos.map((client) => (
-                  <div key={client.alt} className="flex justify-center">
-                    <Image src={client.src} alt={client.alt} />
+                  <div key={client.alt} className="flex justify-center h-24">
+                    <Image
+                      src={client.src}
+                      alt={client.alt}
+                      className="w-auto"
+                    />
                   </div>
                 ))}
               </div>

@@ -1,4 +1,4 @@
-import { client } from "@/sanity/lib/client";
+import { client, sanityFetch } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -12,7 +12,10 @@ async function getWorks() {
     "src": image.asset._ref
   }`;
 
-  const works = await client.fetch(query);
+  const works = await sanityFetch({
+    query: query,
+    tags: ["works"],
+  });
 
   return works;
 }
