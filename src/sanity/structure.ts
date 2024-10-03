@@ -1,17 +1,53 @@
+import {
+  BriefcaseBusiness,
+  Database,
+  Home,
+  MessageCircleHeart,
+  PanelsTopLeft,
+} from "lucide-react";
 import type { StructureResolver } from "sanity/structure";
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure: StructureResolver = (S) =>
   S.list()
-    .title("Blog")
+    .title("Oushn Studio")
     .items([
-      // S.documentTypeListItem('post').title('Posts'),
-      // S.documentTypeListItem('category').title('Categories'),
-      // S.documentTypeListItem('author').title('Authors'),
-      S.documentTypeListItem("work").title("Works"),
+      S.listItem()
+        .title("Pages")
+        .icon(PanelsTopLeft)
+        .child(
+          S.list()
+            .title("Pages")
+            .items([
+              S.listItem()
+                .title("Main Page")
+                .icon(Home)
+                .child(
+                  S.document()
+                    .schemaType("mainPage")
+                    .documentId("singleton-mainPage"),
+                ),
+            ]),
+        ),
       S.divider(),
-      S.documentTypeListItem("feedbacks").title("Feedbacks"),
-      // ...S.documentTypeListItems().filter(
-      //   (item) => item.getId() && !["work"].includes(item.getId()!),
-      // ),
+      S.listItem()
+        .title("General")
+        .icon(Database)
+        .child(
+          S.list()
+            .title("Reusable")
+            .items([
+              S.documentTypeListItem("work")
+                .title("Works")
+                .icon(BriefcaseBusiness),
+              S.divider(),
+              S.documentTypeListItem("feedbacks")
+                .title("Feedbacks")
+                .icon(MessageCircleHeart),
+              // Uncomment and adjust the filter if needed
+              // ...S.documentTypeListItems().filter(
+              //   (item) => item.getId() && !["work"].includes(item.getId()!),
+              // ),
+            ]),
+        ),
     ]);

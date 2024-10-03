@@ -10,6 +10,7 @@ import { videoType } from "./videoType";
 import { blockquoteType } from "./blockquoteType";
 import { reachTextType } from "./reachTextType";
 import { creditsType } from "./creditsType";
+import { mainPageType } from "./mainPageType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -24,5 +25,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     blockquoteType,
     reachTextType,
     creditsType,
+
+    mainPageType,
   ],
 };

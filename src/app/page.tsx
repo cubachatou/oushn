@@ -1,81 +1,42 @@
 import Image from "next/image";
 import Link from "next/link";
-//
 import video from "@videos/intro.mp4";
 import IntroTextSection from "./components/sections/IntroText";
 import VideoIntro from "./components/VideoIntro";
 import WhiteWrapperLayout from "./layouts/white-wrapper";
-//
 import { urlFor } from "@/sanity/lib/image";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
-//
 import { sanityFetch } from "@/sanity/lib/client";
-import client_01 from "@images/clients/client_01.svg?url";
-import client_02 from "@images/clients/client_02.svg?url";
-import client_03 from "@images/clients/client_03.svg?url";
-import client_04 from "@images/clients/client_04.svg?url";
-import client_05 from "@images/clients/client_05.svg?url";
-import client_06 from "@images/clients/client_06.svg?url";
-import client_07 from "@images/clients/client_07.svg?url";
-import client_08 from "@images/clients/client_08.svg?url";
-import client_09 from "@images/clients/client_09.svg?url";
-import client_10 from "@images/clients/client_10.svg?url";
-import client_11 from "@images/clients/client_11.svg?url";
-import client_12 from "@images/clients/client_12.svg?url";
-import { Work } from "../../shared/models";
-
-const clientLogos: { src: StaticImport; alt: string }[] = [
-  {
-    src: client_01,
-    alt: "SOVA *jewelry house",
-  },
-  {
-    src: client_02,
-    alt: "ПУМБ",
-  },
-  {
-    src: client_03,
-    alt: "Planeta Kino",
-  },
-  {
-    src: client_04,
-    alt: "LOREAL",
-  },
-  {
-    src: client_05,
-    alt: "Fora",
-  },
-  {
-    src: client_06,
-    alt: "obmy",
-  },
-  {
-    src: client_07,
-    alt: "drama queen",
-  },
-  {
-    src: client_08,
-    alt: "LA ROCHE-POSAY",
-  },
-  {
-    src: client_09,
-    alt: "Дарниця",
-  },
-  {
-    src: client_10,
-    alt: "Ukraїner",
-  },
-  {
-    src: client_11,
-    alt: "ARTERIUM",
-  },
-  {
-    src: client_12,
-    alt: "banda",
-  },
-];
+import { MainPageData, Work } from "../../shared/models";
 //
+async function getMainPageData() {
+  const mainPageQuery = `
+  *[_type == "mainPage"][0] {
+    intro {
+      title,
+      text
+    },
+    works {
+      moreButton {
+        linkText
+      }
+    },
+    clients {
+      title,
+      images[] {
+        img,
+        alt
+      }
+    }
+  }
+`;
+
+  const mainPageData: MainPageData = await sanityFetch({
+    query: mainPageQuery,
+    tags: ["mainPage"],
+  });
+
+  return mainPageData;
+}
 async function getWorks() {
   const query = `
   *[_type == "work"] | order(_createdAt desc) [0...6] {
@@ -93,6 +54,7 @@ async function getWorks() {
 }
 
 export default async function Home() {
+  const mainPageData: MainPageData = await getMainPageData();
   const works: Work[] = await getWorks();
 
   return (
@@ -101,8 +63,8 @@ export default async function Home() {
 
       <WhiteWrapperLayout>
         <IntroTextSection
-          title="in love with animation"
-          description="We’re Oushn, an animation and motion design studio from Ukraine, working worldwide. We create bright explainers, illustrations and cool animated content for brands with focus on storytelling and emotions. We do all cycle of animation production - from idea to last details in sound design"
+          title={mainPageData.intro.title}
+          description={mainPageData.intro.text}
           titleColor="text-dark-terra-cotta"
         />
 
@@ -139,7 +101,7 @@ export default async function Home() {
               </div>
 
               <Link href="/works" className="button bg-dark-terra-cotta">
-                all projects
+                {mainPageData.works.moreButton.linkText}
               </Link>
             </div>
           </div>
@@ -148,15 +110,20 @@ export default async function Home() {
         <section className="md:py-32 sm:py-24 py-16">
           <div className="container">
             <div className="flex flex-col items-center md:gap-24 gap-16">
-              <h2 className="h2">Our clients</h2>
+              <h2 className="h2">{mainPageData.clients.title}</h2>
 
               <div className="w-full grid 2xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-x-8 gap-y-16">
-                {clientLogos.map((client) => (
-                  <div key={client.alt} className="flex justify-center h-24">
+                {mainPageData.clients.images.map((image) => (
+                  <div
+                    key={image.alt}
+                    className="relative flex justify-center h-32"
+                  >
                     <Image
-                      src={client.src}
-                      alt={client.alt}
-                      className="w-auto"
+                      src={urlFor(image.img).url()}
+                      alt={image.alt}
+                      layout="fill"
+                      objectFit="contain"
+                      className="!w-3/4 mx-auto"
                     />
                   </div>
                 ))}

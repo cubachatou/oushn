@@ -20,6 +20,7 @@ export const workType = defineType({
       options: {
         source: "name",
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "image",
@@ -48,6 +49,7 @@ export const workType = defineType({
     defineField({
       name: "description",
       type: "text",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "content",
@@ -96,11 +98,6 @@ export const workType = defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
-    // defineField({
-    //   name: "someName",
-    //   title: "Some title",
-    //   type: "blockContent",
-    // }),
   ],
   preview: {
     select: {

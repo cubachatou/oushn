@@ -52,3 +52,22 @@ export interface Feedback {
   text: string;
   img: SanityImageSource;
 }
+
+export interface MainPageData {
+  intro: {
+    title: string;
+    text: string;
+  };
+  works: {
+    moreButton: {
+      linkText: string;
+    };
+  };
+  clients: {
+    title: string;
+    images: {
+      img: SanityImageSource;
+      alt: string;
+    }[];
+  };
+}
