@@ -71,3 +71,49 @@ export interface MainPageData {
     }[];
   };
 }
+
+export interface ArtDirCoursePage {
+  introSection: {
+    title: string;
+    text: string;
+  };
+  courseProgramSection: {
+    title: string;
+    description: string;
+    firstGroup: {
+      title: string;
+      img: SanityImageSource;
+      list: string[];
+    };
+    secondGroup: {
+      title: string;
+      img: SanityImageSource;
+      list: string[];
+    };
+  };
+  forWhomSection: {
+    title: string;
+    list: string[];
+  };
+  authorSection: {
+    img: SanityImageSource;
+    name: string;
+    position: string;
+    socials: {
+      icon: SanityImageSource;
+      link: string;
+    }[];
+  };
+  priceSection: {
+    price: string;
+    enrollButton: string;
+    startDate: string;
+  };
+  feedbacksSection: {
+    lookButton: {
+      buttonURL: string;
+      buttonText: string;
+    };
+    additionalInfo: string;
+  };
+}

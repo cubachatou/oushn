@@ -11,6 +11,7 @@ import { blockquoteType } from "./blockquoteType";
 import { reachTextType } from "./reachTextType";
 import { creditsType } from "./creditsType";
 import { mainPageType } from "./mainPageType";
+import { artDirCoursePageType } from "./artDirCoursePageType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -27,5 +28,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     creditsType,
 
     mainPageType,
+    artDirCoursePageType,
   ],
 };

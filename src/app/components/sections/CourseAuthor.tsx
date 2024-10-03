@@ -1,6 +1,8 @@
+import { urlFor } from "@/sanity/lib/image";
 import InstagramIcon from "@images/socials/instagram.svg";
 import YoutubeIcon from "@images/socials/youtube.svg";
-import Image, { StaticImageData } from "next/legacy/image";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import Image from "next/legacy/image";
 
 const socials = [
   {
@@ -19,14 +21,14 @@ const socials = [
 
 export default function CourseAuthorSection({
   name,
-  title,
+  position,
   image,
   bgColor,
   socialsBgColor,
 }: {
   name: string;
-  title: string;
-  image: StaticImageData;
+  position: string;
+  image: string;
   bgColor: string;
   socialsBgColor: string;
 }) {
@@ -36,12 +38,14 @@ export default function CourseAuthorSection({
     >
       <div className="container">
         <div className="max-w-screen-md mx-auto grid sm:grid-cols-2 sm:gap-16 gap-8">
-          <Image src={image} alt="Liza Tarasova" className="object-cover" />
+          <div className="relative aspect-square">
+            <Image src={image} alt={name} layout="fill" objectFit="cover" />
+          </div>
 
           <div className="flex flex-col max-md:items-center gap-4">
             <div className="mb-auto flex flex-col max-md:items-center gap-4 max-md:text-center">
-              <span className="lg:h2 md:h3 h2">Ліза Тарасова</span>
-              <p className="p-medium">Кураторка курсу та авторка програми</p>
+              <span className="lg:h2 md:h3 h2">{name}</span>
+              <p className="p-medium">{position}</p>
             </div>
 
             <ul className="w-fit flex sm:grid grid-cols-2 gap-4">

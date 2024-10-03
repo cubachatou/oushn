@@ -1,6 +1,8 @@
 import {
+  Brain,
   BriefcaseBusiness,
   Database,
+  GraduationCap,
   Home,
   MessageCircleHeart,
   PanelsTopLeft,
@@ -26,6 +28,14 @@ export const structure: StructureResolver = (S) =>
                   S.document()
                     .schemaType("mainPage")
                     .documentId("singleton-mainPage"),
+                ),
+              S.listItem()
+                .title("Art Direction Course Page")
+                .icon(GraduationCap)
+                .child(
+                  S.document()
+                    .schemaType("artDirCoursePage")
+                    .documentId("singleton-artDirCoursePage"),
                 ),
             ]),
         ),
