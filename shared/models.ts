@@ -117,3 +117,40 @@ export interface ArtDirCoursePage {
     additionalInfo: string;
   };
 }
+
+export interface CharCoursePage {
+  introSection: {
+    title: string;
+    text: string;
+  };
+  contentSection: {
+    firstImage: SanityImageSource;
+    program: {
+      title: string;
+      description: string;
+      list: Array<{
+        highlightedText: string;
+        defaultText: string;
+      }>;
+    };
+    secondImage: SanityImageSource;
+  };
+  forWhomSection: {
+    title: string;
+    description: string;
+  };
+  authorSection: {
+    img: SanityImageSource;
+    name: string;
+    position: string;
+    socials: Array<{
+      icon: SanityImageSource;
+      link: string;
+    }>;
+  };
+  priceSection: {
+    price: string;
+    enrollButton: string;
+    addInfo: string;
+  };
+}

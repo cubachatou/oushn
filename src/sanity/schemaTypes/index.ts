@@ -1,17 +1,18 @@
 import { type SchemaTypeDefinition } from "sanity";
-import { textRedactor } from "./textRedactor";
-import { shiftedDoubleMediaGridType } from "./shiftedDoubleMediaGridType";
+import { artDirCoursePageType } from "./artDirCoursePageType";
+import { blockquoteType } from "./blockquoteType";
+import { characterCoursePageType } from "./characterCoursePageType";
+import { creditsType } from "./creditsType";
 import { doubleMediaGridType } from "./doubleMediaGridType";
-import { singleMediaType } from "./singleMedia";
-import { workType } from "./workType";
 import { feedbackType } from "./feedbackType";
+import { mainPageType } from "./mainPageType";
+import { reachTextType } from "./reachTextType";
+import { shiftedDoubleMediaGridType } from "./shiftedDoubleMediaGridType";
+import { singleMediaType } from "./singleMedia";
+import { textRedactor } from "./textRedactor";
 import { tripleMediaGridType } from "./tripleMediaGridType";
 import { videoType } from "./videoType";
-import { blockquoteType } from "./blockquoteType";
-import { reachTextType } from "./reachTextType";
-import { creditsType } from "./creditsType";
-import { mainPageType } from "./mainPageType";
-import { artDirCoursePageType } from "./artDirCoursePageType";
+import { workType } from "./workType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -29,5 +30,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 
     mainPageType,
     artDirCoursePageType,
+    characterCoursePageType,
   ],
 };

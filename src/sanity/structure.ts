@@ -1,11 +1,11 @@
 import {
-  Brain,
   BriefcaseBusiness,
   Database,
-  GraduationCap,
   Home,
+  Megaphone,
   MessageCircleHeart,
   PanelsTopLeft,
+  PersonStanding,
 } from "lucide-react";
 import type { StructureResolver } from "sanity/structure";
 
@@ -31,11 +31,19 @@ export const structure: StructureResolver = (S) =>
                 ),
               S.listItem()
                 .title("Art Direction Course Page")
-                .icon(GraduationCap)
+                .icon(Megaphone)
                 .child(
                   S.document()
                     .schemaType("artDirCoursePage")
                     .documentId("singleton-artDirCoursePage"),
+                ),
+              S.listItem()
+                .title("Character Course Page")
+                .icon(PersonStanding)
+                .child(
+                  S.document()
+                    .schemaType("characterCoursePage")
+                    .documentId("singleton-characterCoursePage"),
                 ),
             ]),
         ),

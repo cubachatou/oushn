@@ -1,8 +1,8 @@
 import { defineField, defineType } from "sanity";
 
-export const artDirCoursePageType = defineType({
-  name: "artDirCoursePage",
-  title: "Art Director Course Page",
+export const characterCoursePageType = defineType({
+  name: "characterCoursePage",
+  title: "Character Course Page",
   type: "document",
   fields: [
     defineField({
@@ -26,27 +26,20 @@ export const artDirCoursePageType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "courseProgramSection",
-      title: "Course Program Section",
+      name: "contentSection",
+      title: "Content Section",
       type: "object",
       fields: [
         defineField({
-          name: "title",
-          title: "Title",
-          type: "string",
+          name: "firstImage",
+          title: "First Image",
+          type: "image",
           validation: (Rule) => Rule.required(),
         }),
         defineField({
-          name: "description",
-          title: "Description",
-          type: "text",
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: "firstGroup",
-          title: "First Group",
+          name: "program",
+          title: "Program",
           type: "object",
-          validation: (Rule) => Rule.required(),
           fields: [
             defineField({
               name: "title",
@@ -55,9 +48,9 @@ export const artDirCoursePageType = defineType({
               validation: (Rule) => Rule.required(),
             }),
             defineField({
-              name: "img",
-              title: "Image",
-              type: "image",
+              name: "description",
+              title: "Description",
+              type: "text",
               validation: (Rule) => Rule.required(),
             }),
             defineField({
@@ -66,42 +59,34 @@ export const artDirCoursePageType = defineType({
               type: "array",
               of: [
                 {
-                  type: "string",
+                  type: "object",
+                  fields: [
+                    defineField({
+                      name: "highlightedText",
+                      title: "Highlighted Text",
+                      type: "string",
+                      validation: (Rule) => Rule.required(),
+                    }),
+                    defineField({
+                      name: "defaultText",
+                      title: "Default Text",
+                      type: "string",
+                      validation: (Rule) => Rule.required(),
+                    }),
+                  ],
+                  validation: (Rule) => Rule.required(),
                 },
               ],
               validation: (Rule) => Rule.required(),
             }),
           ],
+          validation: (Rule) => Rule.required(),
         }),
         defineField({
-          name: "secondGroup",
-          title: "Second Group",
-          type: "object",
+          name: "secondImage",
+          title: "Second Image",
+          type: "image",
           validation: (Rule) => Rule.required(),
-          fields: [
-            defineField({
-              name: "title",
-              title: "Title",
-              type: "string",
-              validation: (Rule) => Rule.required(),
-            }),
-            defineField({
-              name: "img",
-              title: "Image",
-              type: "image",
-              validation: (Rule) => Rule.required(),
-            }),
-            defineField({
-              name: "list",
-              title: "List",
-              type: "array",
-              of: [
-                {
-                  type: "string",
-                },
-              ],
-            }),
-          ],
         }),
       ],
       validation: (Rule) => Rule.required(),
@@ -118,14 +103,9 @@ export const artDirCoursePageType = defineType({
           validation: (Rule) => Rule.required(),
         }),
         defineField({
-          name: "list",
-          title: "List",
-          type: "array",
-          of: [
-            {
-              type: "string",
-            },
-          ],
+          name: "description",
+          title: "Description",
+          type: "text",
           validation: (Rule) => Rule.required(),
         }),
       ],
@@ -208,45 +188,11 @@ export const artDirCoursePageType = defineType({
       ],
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: "feedbacksSection",
-      title: "Feedbacks Section",
-      type: "object",
-      fields: [
-        defineField({
-          name: "lookButton",
-          title: "Look Button",
-          type: "object",
-          fields: [
-            defineField({
-              name: "buttonURL",
-              title: "Button URL",
-              type: "url",
-              validation: (Rule) => Rule.required(),
-            }),
-            defineField({
-              name: "buttonText",
-              title: "Button Text",
-              type: "string",
-              validation: (Rule) => Rule.required(),
-            }),
-          ],
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: "additionalInfo",
-          title: "Additional Info",
-          type: "text",
-          validation: (Rule) => Rule.required(),
-        }),
-      ],
-      validation: (Rule) => Rule.required(),
-    }),
   ],
   preview: {
     prepare() {
       return {
-        title: "Art Director Course Page",
+        title: "Character Course Page",
       };
     },
   },
