@@ -11,6 +11,8 @@ export default function Footer() {
   const pathname = usePathname();
   const isHidden = pathname.includes("/studio");
 
+  const currentYear = new Date().getFullYear();
+
   // Social media data
   const socialLinks = [
     {
@@ -50,7 +52,7 @@ export default function Footer() {
         <div className="container max-w-none md:px-8">
           <div className="flex md:flex-row flex-col-reverse md:items-end items-center justify-between gap-4">
             <span className="text-sm font-GillLight">
-              Oushn ©2024. All rights reserved.
+              Oushn @{currentYear}. All rights reserved.
             </span>
 
             <ul className="flex items-center gap-4">
