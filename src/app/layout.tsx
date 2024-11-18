@@ -54,6 +54,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${california.variable} ${gillLight.variable} ${gillRegular.variable} ${gillBold.variable}`}
+      rel="noindex"
     >
       <body className="relative font-Gill text-lg text-dark-sienna">
         <Header />
