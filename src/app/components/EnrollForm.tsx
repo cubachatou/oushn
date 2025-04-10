@@ -1,4 +1,3 @@
-
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -24,10 +23,11 @@ const formSchema = z.object({
   email: z.string().email({
     message: "Введіть коректний email.",
   }),
-  phone: z.string()
+  phone: z
+    .string()
     .length(13, { message: "Номер телефону повинен бути у форматі +380" }),
-  message: z.string()
-})
+  message: z.string(),
+});
 
 export default function EnrollForm() {
   const { toast } = useToast();
@@ -39,78 +39,116 @@ export default function EnrollForm() {
       phone: "",
       message: "",
     },
-  })
+  });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-    await fetch('http://localhost:3000/api/contact', {
-      method: 'POST',
+    await fetch(`${baseUrl}/api/contact`, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(values),
-    }).then(async (response) => {
-      if (response.status !== 200 && !response.ok) throw new Error();
-      toast({
-        title: "Ваша форма успішно відправлена.",
-        description: "Ми зв'яжемося з вами найближчим часом.",
-        duration: 5000,
-      })
     })
+      .then(async (response) => {
+        if (response.status !== 200 && !response.ok) throw new Error();
+        toast({
+          title: "Ваша форма успішно відправлена.",
+          description: "Ми зв'яжемося з вами найближчим часом.",
+          duration: 5000,
+        });
+      })
       .catch(() => {
         toast({
           title: "Виникла помилка",
           description: "Будь ласка, спробуйте пізніше.",
           duration: 5000,
-        })
-      })
+        });
+      });
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 p-4 max-md:px-0">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-8 p-4 max-md:px-0"
+      >
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="p-base">Ім&apos;я</FormLabel>
+              <FormControl>
+                <Input
+                  className="p-base font-GillLight"
+                  placeholder="Ім'я"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-        <FormField control={form.control} name="name" render={({ field }) => (
-          <FormItem>
-            <FormLabel className="p-base">Ім&apos;я</FormLabel>
-            <FormControl>
-              <Input className="p-base font-GillLight" placeholder="Ім'я" {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )} />
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="p-base">Email</FormLabel>
+              <FormControl>
+                <Input
+                  className="p-base font-GillLight"
+                  placeholder="Email"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-        <FormField control={form.control} name="email" render={({ field }) => (
-          <FormItem>
-            <FormLabel className="p-base">Email</FormLabel>
-            <FormControl>
-              <Input className="p-base font-GillLight" placeholder="Email" {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )} />
+        <FormField
+          control={form.control}
+          name="phone"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="p-base">Телефон</FormLabel>
+              <FormControl>
+                <Input
+                  className="p-base font-GillLight"
+                  placeholder="+380"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-        <FormField control={form.control} name="phone" render={({ field }) => (
-          <FormItem>
-            <FormLabel className="p-base">Телефон</FormLabel>
-            <FormControl>
-              <Input className="p-base font-GillLight" placeholder="+380" {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )} />
+        <FormField
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="p-base">Ваші запитання</FormLabel>
+              <FormControl>
+                <Textarea
+                  className="min-h-40 p-base font-GillLight"
+                  placeholder="Якщо у Вас є питання щодо курсу, залиште його тут"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-        <FormField control={form.control} name="message" render={({ field }) => (
-          <FormItem>
-            <FormLabel className="p-base">Ваші запитання</FormLabel>
-            <FormControl>
-              <Textarea className="min-h-40 p-base font-GillLight" placeholder="Якщо у Вас є питання щодо курсу, залиште його тут" {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )} />
-
-        <button type="submit" className="button w-full mt-4">Записатися</button>
+        <button type="submit" className="button w-full mt-4">
+          Записатися
+        </button>
       </form>
     </Form>
   );
