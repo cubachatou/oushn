@@ -44,7 +44,7 @@ export default function EnrollForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-    await fetch(`${baseUrl}/api/contact`, {
+    await fetch(`https://oushn.tv/api/contact`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
